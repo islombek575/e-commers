@@ -22,3 +22,12 @@ sms qayta yuborish bolsin (3martadan keyin malumotlarini delete qilish kk)
 - rasmlari bir hil size bolsin (barcha webp formatga otkazilsin)
 - productni size va color bolsin
 
+
+
+
+Note
+1. Git
+git status # git holatini tekshirish
+git add file.txt # file.txt ni git ga qoshish
+git add . # shu yerda barcha fayllarni gitga qoshadi
+git commit -m "add user models" # o'zgarishlarni commit qilish
