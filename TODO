@@ -31,3 +31,7 @@ git status # git holatini tekshirish
 git add file.txt # file.txt ni git ga qoshish
 git add . # shu yerda barcha fayllarni gitga qoshadi
 git commit -m "add user models" # o'zgarishlarni commit qilish
+
+git pull # githubdan hozirgi turgan branchdagi malumotlari olib keladi
+
+git branch
