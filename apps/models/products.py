@@ -1,6 +1,6 @@
 
-from django.db.models import Model, ForeignKey, CASCADE, ImageField, TextChoices
-from django.db.models.fields import CharField, DecimalField, BooleanField, IntegerField
+from django.db.models import Model, ForeignKey, CASCADE, ImageField
+from django.db.models.fields import CharField, DecimalField, IntegerField
 
 
 class Category(Model):

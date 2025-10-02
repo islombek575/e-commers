@@ -6,7 +6,7 @@ from rest_framework.fields import UUIDField
 
 
 class UUIDBaseModel(Model):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = UUIDField(default=uuid.uuid4)
 
     class Meta:
         abstract = True
