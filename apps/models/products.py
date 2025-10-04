@@ -1,6 +1,5 @@
-
 from django.db.models import Model, ForeignKey, CASCADE, ImageField, BigIntegerField
-from django.db.models.fields import CharField, DecimalField, IntegerField
+from django.db.models.fields import CharField, IntegerField
 
 from apps.models.base import UUIDBaseModel
 
@@ -8,7 +7,6 @@ from apps.models.base import UUIDBaseModel
 class Category(Model):
     icon = ImageField(upload_to='categories/icon/')
     name = CharField(unique=True, max_length=255)
-
 
 
 class Product(UUIDBaseModel):
@@ -22,9 +20,6 @@ class Product(UUIDBaseModel):
     color = CharField(max_length=100, null=True, blank=True)
 
 
-
-
-
 class ProductImage(Model):
     product = ForeignKey(Product, on_delete=CASCADE)
     image = ImageField(upload_to='media/products/', null=True, blank=True)
@@ -33,4 +28,3 @@ class ProductImage(Model):
 class Like(Model):
     product = ForeignKey('apps.Product', on_delete=CASCADE)
     user = ForeignKey('apps.User', on_delete=CASCADE)
-
