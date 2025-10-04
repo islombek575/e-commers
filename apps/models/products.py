@@ -9,6 +9,7 @@ class Category(Model):
     name = CharField(unique=True, max_length=255)
 
 
+
 class Product(UUIDBaseModel):
     category = ForeignKey('apps.Category', on_delete=CASCADE)
     name = CharField(max_length=255)
