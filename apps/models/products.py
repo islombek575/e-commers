@@ -25,6 +25,7 @@ class ProductImage(Model):
     image = ImageField(upload_to='media/products/', null=True, blank=True)
 
 
+
 class Like(Model):
     product = ForeignKey('apps.Product', on_delete=CASCADE)
     user = ForeignKey('apps.User', on_delete=CASCADE)
