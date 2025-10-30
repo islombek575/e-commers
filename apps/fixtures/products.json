@@ -1,0 +1,537 @@
+[
+  {
+    "model": "apps.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "iPhone 15 Pro",
+      "price": 15000000,
+      "discount": 10,
+      "description": "Eng so‘nggi Apple smartfoni, 256GB, Titanium korpus.",
+      "attributes": {
+        "rang": "Kulrang",
+        "xotira": "256GB",
+        "kamera": "48MP",
+        "batareya": "3274mAh"
+      },
+      "deliver_date": "2025-11-01",
+      "created_at": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "image": "media/products/iphone15pro.png"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "user": 1,
+      "comment": "Telefon juda zo‘r, kamerasi aniq ishlaydi!",
+      "created_at": "2025-10-22T10:00:00Z"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "user": 2,
+      "comment": "Narxi biroz qimmat, lekin sifat a'lo!",
+      "created_at": "2025-10-23T14:00:00Z"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "user": 1
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "user": 2
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "name": "Asus ZenBook 14",
+      "price": 11000000,
+      "discount": 5,
+      "description": "Yengil va kuchli noutbuk, 16GB RAM, 512GB SSD.",
+      "attributes": {
+        "rang": "Kumush",
+        "protsessor": "Intel i7",
+        "xotira": "16GB",
+        "ssd": "512GB"
+      },
+      "deliver_date": "2025-11-05",
+      "created_at": "2025-10-21T12:00:00Z"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "name": "Samsung Galaxy Watch 6",
+      "price": 4000000,
+      "discount": 0,
+      "description": "Sport va salomatlik funksiyalariga ega aqlli soat.",
+      "attributes": {
+        "rang": "Qora",
+        "displey": "AMOLED",
+        "korpus": "Alyuminiy",
+        "batareya": "300mAh"
+      },
+      "deliver_date": "2025-11-03",
+      "created_at": "2025-10-22T08:30:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "image": "media/products/asus-zenbook14-1.png"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "image": "media/products/galaxy-watch6.png"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 4,
+    "fields": {
+      "product": 3,
+      "image": "media/products/galaxy-watch6-band.png"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "user": 1,
+      "comment": "Soat juda chiroyli va qulay, yetkazib berish tez bo'ldi.",
+      "created_at": "2025-10-24T11:00:00Z"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "user": 1
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 4,
+    "fields": {
+      "category": 4,
+      "name": "LG OLED C3 55 inch",
+      "price": 18000000,
+      "discount": 15,
+      "description": "Ajoyib tasvir sifati va o'yin funksiyalariga ega OLED televizor.",
+      "attributes": {
+        "rang": "Qora",
+        "ekran_turi": "OLED",
+        "o'lchami": "55 inch",
+        "rezolyutsiya": "4K UHD"
+      },
+      "deliver_date": "2025-11-10",
+      "created_at": "2025-10-23T15:00:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 5,
+    "fields": {
+      "product": 4,
+      "image": "media/products/lg-oled-c3.png"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "user": 2,
+      "comment": "Tasvir sifati umuman boshqacha darajada! Tavsiya qilaman.",
+      "created_at": "2025-10-25T09:00:00Z"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "user": 2
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 5,
+    "fields": {
+      "product": 4,
+      "user": 1
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 5,
+    "fields": {
+      "category": 5,
+      "name": "Sony WH-1000XM5 ANC Naushniklar",
+      "price": 5500000,
+      "discount": 0,
+      "description": "Eng yaxshi shovqinni o‘chirish tizimiga ega premium simsiz naushniklar.",
+      "attributes": {
+        "rang": "Oq",
+        "ishlash_vaqti": "30 soat",
+        "ular_turi": "Quloq usti",
+        "ulanish": "Bluetooth 5.2"
+      },
+      "deliver_date": "2025-11-02",
+      "created_at": "2025-10-25T18:30:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 6,
+    "fields": {
+      "product": 5,
+      "image": "media/products/sony-xm5-white.png"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "user": 1,
+      "comment": "Shovqinni o'chirish funksiyasi juda a'lo! Safarlar uchun ideal.",
+      "created_at": "2025-10-26T10:15:00Z"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 6,
+    "fields": {
+      "product": 5,
+      "user": 2
+    }
+  },
+
+  {
+    "model": "apps.product",
+    "pk": 6,
+    "fields": {
+      "category": 1,
+      "name": "Xiaomi 14 Ultra",
+      "price": 10500000,
+      "discount": 10,
+      "description": "Leica kamerasi va Snapdragon 8 Gen 3 protsessoriga ega flagman smartfon.",
+      "attributes": {
+        "rang": "Qora",
+        "xotira": "512GB",
+        "ram": "16GB",
+        "displey": "AMOLED 120Hz"
+      },
+      "deliver_date": "2025-11-04",
+      "created_at": "2025-10-26T12:00:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 7,
+    "fields": {
+      "product": 6,
+      "image": "media/products/xiaomi14ultra.png"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "MacBook Air M3 15-inch",
+      "price": 16000000,
+      "discount": 0,
+      "description": "Yangi M3 chipi bilan juda yupqa va kuchli noutbuk.",
+      "attributes": {
+        "rang": "Yulduz nuri",
+        "protsessor": "Apple M3",
+        "xotira": "8GB",
+        "ssd": "256GB"
+      },
+      "deliver_date": "2025-11-08",
+      "created_at": "2025-10-27T09:15:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 8,
+    "fields": {
+      "product": 7,
+      "image": "media/products/macbook-air-m3.png"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 6,
+    "fields": {
+      "product": 7,
+      "user": 2,
+      "comment": "Batareya quvvati juda uzoqqa yetadi, M3 chipi tezkor!",
+      "created_at": "2025-10-28T16:00:00Z"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "user": 1
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 8,
+    "fields": {
+      "category": 4,
+      "name": "Samsung Twin Cooling Muzlatgich",
+      "price": 8500000,
+      "discount": 5,
+      "description": "Ikki tomonlama sovutish tizimiga ega katta hajmli muzlatgich.",
+      "attributes": {
+        "rang": "Kumush",
+        "hajmi": "450 litr",
+        "kompressor": "Inverter"
+      },
+      "deliver_date": "2025-11-15",
+      "created_at": "2025-10-27T15:45:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 9,
+    "fields": {
+      "product": 8,
+      "image": "media/products/samsung-fridge.png"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 9,
+    "fields": {
+      "category": 3,
+      "name": "Apple Watch Series 9",
+      "price": 6000000,
+      "discount": 0,
+      "description": "Yangi S9 chipi va yorqinroq displeyga ega aqlli soat.",
+      "attributes": {
+        "rang": "Qizil",
+        "korpus_hajmi": "45mm",
+        "displey": "Retina LTPO"
+      },
+      "deliver_date": "2025-11-03",
+      "created_at": "2025-10-28T11:00:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 10,
+    "fields": {
+      "product": 9,
+      "image": "media/products/apple-watch9.png"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 8,
+    "fields": {
+      "product": 9,
+      "user": 1
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 10,
+    "fields": {
+      "category": 1,
+      "name": "Google Pixel 8 Pro",
+      "price": 12500000,
+      "discount": 0,
+      "description": "Sun'iy intellekt funksiyalari va a'lo kamera bilan jihozlangan Google smartfoni.",
+      "attributes": {
+        "rang": "Ko‘k",
+        "protsessor": "Tensor G3",
+        "xotira": "256GB",
+        "kamera": "50MP"
+      },
+      "deliver_date": "2025-11-06",
+      "created_at": "2025-10-29T09:00:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 11,
+    "fields": {
+      "product": 10,
+      "image": "media/products/pixel8pro.png"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 11,
+    "fields": {
+      "category": 4,
+      "name": "Xiaomi Smart TV A2 43 inch",
+      "price": 4200000,
+      "discount": 10,
+      "description": "Android TV operatsion tizimiga ega hamyonbop smart televizor.",
+      "attributes": {
+        "rang": "Qora",
+        "ekran_turi": "LED",
+        "o'lchami": "43 inch",
+        "rezolyutsiya": "Full HD"
+      },
+      "deliver_date": "2025-11-12",
+      "created_at": "2025-10-29T10:30:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 12,
+    "fields": {
+      "product": 11,
+      "image": "media/products/xiaomi-tv-a2.png"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 12,
+    "fields": {
+      "category": 2,
+      "name": "HP Victus 16 O'yin Noutbuki",
+      "price": 13000000,
+      "discount": 0,
+      "description": "O'yinlar uchun mo'ljallangan kuchli noutbuk, RTX 4060 grafika kartasi.",
+      "attributes": {
+        "rang": "Qora",
+        "protsessor": "Intel i5 13-gen",
+        "xotira": "16GB",
+        "gpu": "RTX 4060"
+      },
+      "deliver_date": "2025-11-09",
+      "created_at": "2025-10-29T11:45:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 13,
+    "fields": {
+      "product": 12,
+      "image": "media/products/hp-victus16.png"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 13,
+    "fields": {
+      "category": 5,
+      "name": "Logitech MX Master 3S sichqonchasi",
+      "price": 1200000,
+      "discount": 10,
+      "description": "Profesional ishlar va dizayn uchun mo'ljallangan ergonomik sichqoncha.",
+      "attributes": {
+        "rang": "Kulrang",
+        "ulanish": "Bluetooth/USB",
+        "ergonomika": "Ha"
+      },
+      "deliver_date": "2025-11-01",
+      "created_at": "2025-10-29T14:00:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 14,
+    "fields": {
+      "product": 13,
+      "image": "media/products/logitech-mxmaster3s.png"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": 14,
+    "fields": {
+      "category": 1,
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": 17500000,
+      "discount": 5,
+      "description": "Galaxy AI funksiyalari va S Pen ruchkasi bilan jihozlangan eng so'nggi Samsung flagmani.",
+      "attributes": {
+        "rang": "Titan Qora",
+        "xotira": "512GB",
+        "kamera": "200MP",
+        "ram": "12GB"
+      },
+      "deliver_date": "2025-11-07",
+      "created_at": "2025-10-29T15:30:00Z"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 15,
+    "fields": {
+      "product": 14,
+      "image": "media/products/samsung-s24ultra.png"
+    }
+  },
+  {
+    "model": "apps.comment",
+    "pk": 7,
+    "fields": {
+      "product": 14,
+      "user": 1,
+      "comment": "AI funksiyalari ishni ancha osonlashtirdi. Ajoyib smartfon.",
+      "created_at": "2025-10-29T16:00:00Z"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 9,
+    "fields": {
+      "product": 14,
+      "user": 2
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 10,
+    "fields": {
+      "product": 14,
+      "user": 1
+    }
+  }
+]
+

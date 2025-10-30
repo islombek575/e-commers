@@ -1,0 +1,19 @@
+[project]
+name = "e-commers"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "django[argon2]>=5.2.7",
+    "django-admin-json-editor>=0.2.3",
+    "django-jazzmin>=3.0.1",
+    "django-json-widget>=2.1.0",
+    "dotenv>=0.9.9",
+    "drf-spectacular>=0.28.0",
+    "pillow>=11.3.0",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.1.1",
+    "booktype>=1.5",
+    "djangorestframework-simplejwt>=5.5.1",
+    "redis==5.0.1",
+]
