@@ -5,7 +5,7 @@ from django.db.models.fields import CharField
 from django.utils.translation import gettext_lazy as _
 from jsonschema.exceptions import ValidationError
 
-from apps.managers import UserManager
+from apps.models.managers import UserManager
 
 
 class User(AbstractUser):
@@ -16,7 +16,6 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []
-
 
     class Meta:
         verbose_name = _('user')
@@ -35,5 +34,5 @@ class User(AbstractUser):
         super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
 
 
-def __str__(self):
-    return self.phone
+    def __str__(self):
+        return self.phone
