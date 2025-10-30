@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "email": "islombek@example.com",
-      "phone": "+998901234567",
+      "phone": "901234567",
       "address": "Farg‘ona",
       "password": "pbkdf2_sha256$600000$testhash$E4F4hDq7dQKZK4vYg0yDaz7zENY=",
       "is_active": true
@@ -15,7 +15,7 @@
     "pk": 2,
     "fields": {
       "email": "aziz@example.com",
-      "phone": "+998909876543",
+      "phone": "909876543",
       "address": "Toshkent",
       "password": "pbkdf2_sha256$600000$testhash$E4F4hDq7dQKZK4vYg0yDaz7zENY=",
       "is_active": true
@@ -26,7 +26,7 @@
     "pk": 3,
     "fields": {
       "email": "odil@example.com",
-      "phone": "+998931112233",
+      "phone": "931112233",
       "address": "Samarqand",
       "password": "pbkdf2_sha256$600000$testhash$E4F4hDq7dQKZK4vYg0yDaz7zENY=",
       "is_active": true
