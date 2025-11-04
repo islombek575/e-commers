@@ -152,6 +152,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/db/eb/33401a7c47b078b12a281952c6e963906602a3eeff13f400adda15e4de7f/django-admin-json-editor-0.2.3.tar.gz", hash = "sha256:12cf9dd1288f83f5ec83fbe2a39668e79a85e33bfbeb08157a6f5c7c4e480e20", size = 843355, upload-time = "2020-05-27T12:47:25.39Z" }
 
 [[package]]
+name = "django-ckeditor-5"
+version = "0.2.18"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "pillow" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/17/c0/2ddd9b6b5b62f37f24e470684b5cc5494de2504ce00d6e803f3005fdebbc/django_ckeditor_5-0.2.18.tar.gz", hash = "sha256:08270b1dd8d1b5c27c5a2023ec8f920e2ec0c7d2afa0113af765f0de53947d35", size = 2630309, upload-time = "2025-05-09T15:54:38.668Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/46/e1/c4a02822e86e733cbb5f4c8c2d881bd16cd0a251780e34aff16d2ea82008/django_ckeditor_5-0.2.18-py3-none-any.whl", hash = "sha256:155d14bed6688791026486c191dd82dbc2937d6a588079989d5bd89708de8463", size = 2726759, upload-time = "2025-05-09T15:54:35.281Z" },
+]
+
+[[package]]
 name = "django-jazzmin"
 version = "3.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -170,6 +183,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/3f/84/db3338004d664cad952119a44254987fe23805243b167c5211aa52c0f5e4/django_json_widget-2.1.0.tar.gz", hash = "sha256:0f040b8b329d5032dc1136cf50c01dc7563a07b8f0c3f5324b9051bc3e6eaa83", size = 383610, upload-time = "2025-10-24T15:12:16.258Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f0/c5/313336b98874ae1e8776e62777a75ce0c97ab47b66475bc7979f2e7176b4/django_json_widget-2.1.0-py2.py3-none-any.whl", hash = "sha256:fc30781292000c745449632d0f2d6ddd8f2415172664ae9fad42f1cd407a5612", size = 293397, upload-time = "2025-10-24T15:12:13.209Z" },
+]
+
+[[package]]
+name = "django-jsoneditor"
+version = "0.2.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e9/1a/380d39fd4b5dadc2a899d35c1e2b1627237d131eb05a94bf6d14f9bed8a3/django-jsoneditor-0.2.4.tar.gz", hash = "sha256:1d3dfca28f047feefa6ebc6f9541179eb815fb459b006faf3fb8d0fb2197d2df", size = 367495, upload-time = "2023-02-15T09:47:58.762Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b5/80/3c7ac534e511f3c88d8c25b233bcf0836a4681a5b0f4f7ec5f0f16cab91b/django_jsoneditor-0.2.4-py2.py3-none-any.whl", hash = "sha256:d7a639a7251e376126b5be64ea588c925c7a40d45e0e212f66ef475d2f0f90bb", size = 372962, upload-time = "2023-02-15T09:47:55.732Z" },
 ]
 
 [[package]]
@@ -234,8 +259,10 @@ dependencies = [
     { name = "booktype" },
     { name = "django", extra = ["argon2"] },
     { name = "django-admin-json-editor" },
+    { name = "django-ckeditor-5" },
     { name = "django-jazzmin" },
     { name = "django-json-widget" },
+    { name = "django-jsoneditor" },
     { name = "djangorestframework-simplejwt" },
     { name = "dotenv" },
     { name = "drf-spectacular" },
@@ -250,8 +277,10 @@ requires-dist = [
     { name = "booktype", specifier = ">=1.5" },
     { name = "django", extras = ["argon2"], specifier = ">=5.2.7" },
     { name = "django-admin-json-editor", specifier = ">=0.2.3" },
+    { name = "django-ckeditor-5", specifier = ">=0.2.18" },
     { name = "django-jazzmin", specifier = ">=3.0.1" },
     { name = "django-json-widget", specifier = ">=2.1.0" },
+    { name = "django-jsoneditor", specifier = ">=0.2.4" },
     { name = "djangorestframework-simplejwt", specifier = ">=5.5.1" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "drf-spectacular", specifier = ">=0.28.0" },
@@ -295,6 +324,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa6d1095e7cc5569bebf04342ee146178e2d36600708b/jsonschema_specifications-2025.9.1.tar.gz", hash = "sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d", size = 32855, upload-time = "2025-09-08T01:34:59.186Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl", hash = "sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe", size = 18437, upload-time = "2025-09-08T01:34:57.871Z" },
+]
+
+[[package]]
+name = "packaging"
+version = "25.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f", size = 165727, upload-time = "2025-04-19T11:48:59.673Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484", size = 66469, upload-time = "2025-04-19T11:48:57.875Z" },
 ]
 
 [[package]]

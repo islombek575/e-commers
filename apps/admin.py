@@ -1,11 +1,12 @@
 from django.contrib import admin
-from django.db.models import JSONField
 from django_json_widget.widgets import JSONEditorWidget
+from rest_framework.fields import JSONField
 
 from apps.models import Category, ProductImage, Like
-from .forms import ProductForm
+from .forms import ProductVersionForm
 from .models import Product
-from .models.products import Comment
+from .models import User
+from .models.products import Comment, ProductVersion
 
 
 class ProductImageInline(admin.TabularInline):
@@ -13,21 +14,18 @@ class ProductImageInline(admin.TabularInline):
     extra = 1
 
 
+class ProductVersionInline(admin.TabularInline):
+    model = ProductVersion
+    extra = 1
+    # form = ProductVersionForm
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'price', 'discount', 'created_at')
+    list_display = ('name', 'category', 'created_at')
     search_fields = ('name',)
     list_filter = ('category',)
-    inlines = [ProductImageInline]
-    formfield_overrides = {
-        JSONField: {'widget': JSONEditorWidget},
-    }
-    form = ProductForm
-
-
-from django.contrib import admin
-from .models import User
-
+    inlines = [ProductImageInline, ProductVersionInline]
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):

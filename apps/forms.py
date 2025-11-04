@@ -1,22 +1,14 @@
 from django import forms
+from django_json_widget.widgets import JSONEditorWidget
+from apps.models import ProductVersion
 
-from .models import Product
-from .widgets import KeyValueWidget
 
-
-class ProductForm(forms.ModelForm):
-    attributes = forms.CharField(widget=KeyValueWidget(), required=False)
-
+class ProductVersionForm(forms.ModelForm):
     class Meta:
-        model = Product
-        fields = '__all__'
+        model = ProductVersion
 
-    def clean_attributes(self):
-        import json
-        data = self.cleaned_data['attributes']
-        if isinstance(data, str):
-            try:
-                return json.loads(data)
-            except Exception:
-                return {}
-        return data
+        fields = ('attributes',)
+
+        widgets = {
+            'jsonfield': JSONEditorWidget
+        }
