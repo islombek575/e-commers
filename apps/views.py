@@ -5,11 +5,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Category, Product, Like
-from .models.products import Comment, SubCategory
-from .serializers import CategoryModelSerializer, ProductModelSerializer, LikeSerializer, SendSmsCodeSerializer, \
-    VerifySmsCodeSerializer, CommentModelSerializer, SubCategoryModelSerializer
-from .utils import random_code, send_sms_code, check_sms_code
+from apps.models import Category, Product, Like, Comment
+from apps.serializers import CategoryModelSerializer, ProductModelSerializer, LikeSerializer, SendSmsCodeSerializer, \
+    VerifySmsCodeSerializer, CommentModelSerializer
+from apps.utils import random_code, send_sms_code, check_sms_code
 
 
 @extend_schema(tags=['Auth'])
@@ -32,7 +31,7 @@ class LoginAPIView(APIView):
     authentication_classes = ()
 
     def post(self, request, *args, **kwargs):
-        serializer = VerifySmsCodeSerializer(data=request.data, context={'request': request})
+        serializer = self.serializer_class(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
         is_valid_code = check_sms_code(**serializer.data)
@@ -40,10 +39,6 @@ class LoginAPIView(APIView):
             return Response({"message": "invalid code"}, status.HTTP_400_BAD_REQUEST)
 
         return Response(serializer.get_data)
-
-class SubCategoryListView(ListAPIView):
-    queryset = SubCategory.objects.all()
-    serializer_class = SubCategoryModelSerializer
 
 
 class CategoryListView(ListAPIView):

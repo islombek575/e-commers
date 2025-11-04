@@ -1,7 +1,6 @@
 import uuid
 
-from django.db.models import Model, SlugField, UUIDField
-from django.db.models.fields import DateTimeField
+from django.db.models import Model, DateTimeField, SlugField, UUIDField, CharField
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
@@ -14,14 +13,16 @@ class UUIDBaseModel(Model):
 
 
 class CreatedBaseModel(Model):
-    created_at = DateTimeField(verbose_name=_('Created_at'),auto_now_add=True)
+    created_at = DateTimeField(_('Created_at'), auto_now_add=True)
 
     class Meta:
         abstract = True
+        ordering = '-created_at',
 
 
 class SlugBaseModel(Model):
-    slug = SlugField(verbose_name=_('Slug'),max_length=255, unique=True, editable=False)
+    slug = SlugField(max_length=255, unique=True, editable=False)
+    name = CharField(_("Name"), unique=True, max_length=255)
 
     class Meta:
         abstract = True
@@ -31,3 +32,5 @@ class SlugBaseModel(Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.name

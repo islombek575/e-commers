@@ -1,5 +1,5 @@
 # orders.py
-from django.db.models import CharField, ForeignKey, CASCADE, BigIntegerField, DateTimeField, IntegerField
+from django.db.models import CharField, ForeignKey, CASCADE, BigIntegerField, IntegerField
 from django.db.models.enums import TextChoices
 from django.utils.translation import gettext_lazy as _
 
@@ -22,10 +22,10 @@ class Order(UUIDBaseModel, CreatedBaseModel):
         INSTALLMENT = 'INSTALLMENT', _('Installment Plan')
 
     customer = ForeignKey('apps.User', CASCADE, related_name='orders')
-    status = CharField(default=OrderStatus.PENDING, max_length=20, choices=OrderStatus.choices,verbose_name=_('Order Status'))
-    total_price = BigIntegerField(default=0, verbose_name=_('Total Price'))
-    payment_method = CharField(max_length=20, choices=PaymentMethod.choices, verbose_name=_('Payment Method'))
-    delivery_address = CharField(max_length=255, verbose_name=_('Delivery Address'))
+    status = CharField(_('Order Status'), default=OrderStatus.PENDING, max_length=20, choices=OrderStatus.choices)
+    total_price = BigIntegerField(_('Total Price'), default=0, db_default=0)
+    payment_method = CharField(_('Payment Method'), max_length=20, choices=PaymentMethod.choices)
+    delivery_address = CharField(_('Delivery Address'), max_length=255)
 
     class Meta:
         verbose_name = _('order')
@@ -38,8 +38,8 @@ class Order(UUIDBaseModel, CreatedBaseModel):
 class OrderItem(UUIDBaseModel):
     order = ForeignKey('apps.Order', CASCADE, related_name='items')
     product_version = ForeignKey('apps.ProductVersion', CASCADE)
-    quantity = IntegerField(default=1, verbose_name=_('Quantity'))
-    price_at_purchase = BigIntegerField(verbose_name=_('Price at Purchase'))
+    quantity = IntegerField(_('Quantity'), default=1)
+    price_at_purchase = BigIntegerField(_('Price at Purchase'))
 
     @property
     def total(self):

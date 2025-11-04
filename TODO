@@ -2,5 +2,9 @@ uzum.uz
 
 
 Task
-1. category ichma ich qilish
-2. modellarni yozish (dokon, product, category, cart, order, user, comment)
+1. category ichma ich qilish +
+2. modellarni yozish (dokon, product, category, cart, order, user, comment) +
+3. user ichida check_phone emas, clean ichida yozish
+4. fixture
+5. isort, flake8
+6.

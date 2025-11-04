@@ -9,8 +9,8 @@ from apps.models.managers import UserManager
 
 
 class User(AbstractUser):
-    address = CharField(verbose_name=_('Location'), max_length=100, null=True, blank=True)
-    phone = CharField(verbose_name=_('Phone Number'), max_length=15, unique=True)
+    address = CharField(_('Location'), max_length=100, null=True, blank=True)
+    phone = CharField(_('Phone Number'), max_length=15, unique=True)
     username = None
     objects = UserManager()
 
@@ -32,7 +32,6 @@ class User(AbstractUser):
     def save(self, *, force_insert=False, force_update=False, using=None, update_fields=None):
         self.check_phone()
         super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
-
 
     def __str__(self):
         return self.phone

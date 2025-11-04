@@ -5,7 +5,7 @@ from .models import (
     Category, Product,
     ProductImage, Like, User
 )
-from .models.products import Comment, SubCategory
+from .models.products import Comment
 
 
 class SendSmsCodeSerializer(Serializer):
@@ -35,6 +35,7 @@ import re
 from typing import Any
 
 User = get_user_model()
+
 
 class VerifySmsCodeSerializer(serializers.Serializer):
     phone = serializers.CharField(default='901001010')
@@ -131,10 +132,6 @@ class CategoryModelSerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'slug', 'icon']
 
-class SubCategoryModelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SubCategory
-        fields = ['id', 'name', 'slug', 'icon']
 
 class LikeSerializer(serializers.ModelSerializer):
     user = UserModelSerializer(read_only=True)

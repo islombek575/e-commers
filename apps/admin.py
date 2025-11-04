@@ -1,9 +1,7 @@
 from django.contrib import admin
-from django_json_widget.widgets import JSONEditorWidget
-from rest_framework.fields import JSONField
+from django.contrib.auth.admin import UserAdmin
 
 from apps.models import Category, ProductImage, Like
-from .forms import ProductVersionForm
 from .models import Product
 from .models import User
 from .models.products import Comment, ProductVersion
@@ -27,8 +25,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('category',)
     inlines = [ProductImageInline, ProductVersionInline]
 
+
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserModelAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('phone', 'password')}),
         ('Personal info', {'fields': ('email', 'address',)}),
@@ -46,12 +45,6 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('phone', 'email', 'is_staff', 'is_superuser')
     search_fields = ('phone', 'email')
     ordering = ('-id',)
-
-    def save_model(self, request, obj, form, change):
-        raw_pwd = form.cleaned_data.get('password')
-        if raw_pwd and not raw_pwd.startswith('argon2$'):
-            obj.set_password(raw_pwd)
-        super().save_model(request, obj, form, change)
 
 
 admin.site.register(Category)
