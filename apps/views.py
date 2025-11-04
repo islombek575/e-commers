@@ -1,16 +1,14 @@
-from django.core.cache import cache
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework_simplejwt.tokens import RefreshToken
 
-from .models import Category, Product, Like, User
+from .models import Category, Product, Like
 from .models.products import Comment
 from .serializers import CategoryModelSerializer, ProductModelSerializer, LikeSerializer, SendSmsCodeSerializer, \
-    VerifySmsCodeSerializer, UserModelSerializer
+    VerifySmsCodeSerializer
 from .utils import random_code, send_sms_code, check_sms_code
 
 
@@ -25,7 +23,6 @@ class SendCodeAPIView(APIView):
         code = random_code()
         phone = serializer.data['phone']
         send_sms_code(phone, code)
-        cache.set(f"verify:current_phone:{request.session.session_key}", phone, 300)
         return Response({"message": "send sms code"})
 
 
@@ -34,32 +31,15 @@ class LoginAPIView(APIView):
     serializer_class = VerifySmsCodeSerializer
     authentication_classes = ()
 
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data, context={'request': request})
+    def post(self, request, *args, **kwargs):
+        serializer = VerifySmsCodeSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
-        session_key = request.session.session_key
-        phone = cache.get(f"verify:current_phone:{session_key}")
+        is_valid_code = check_sms_code(**serializer.data)
+        if not is_valid_code:
+            return Response({"message": "invalid code"}, status.HTTP_400_BAD_REQUEST)
 
-        if not phone:
-            return Response({"message": "Telefon raqam topilmadi, qayta urinib ko‘ring"}, status.HTTP_400_BAD_REQUEST)
-
-        code = serializer.validated_data.get('code')
-        if not check_sms_code(phone, code):
-            return Response({"message": "Kod noto‘g‘ri yoki muddati tugagan"}, status.HTTP_400_BAD_REQUEST)
-
-        user, created = User.objects.get_or_create(phone=phone)
-        if created:
-            user.set_unusable_password()
-            user.save()
-
-        refresh = RefreshToken.for_user(user)
-        data = {
-            "access_token": str(refresh.access_token),
-            "refresh_token": str(refresh),
-            "user": UserModelSerializer(user).data,
-        }
-        return Response({"message": "OK", "data": data})
+        return Response(serializer.get_data)
 
 
 class CategoryListView(ListAPIView):

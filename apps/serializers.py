@@ -1,19 +1,11 @@
-import re
-from typing import Any
-from django.core.cache import cache
-from django.contrib.auth import authenticate
-from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
-from rest_framework.fields import IntegerField, CharField
+from rest_framework.fields import CharField
 from rest_framework.serializers import Serializer
-from rest_framework_simplejwt.tokens import RefreshToken, Token
 
 from .models import (
     Category, Product,
     ProductImage, Like, User
 )
 from .models.products import Comment
-from .utils import check_sms_code
 
 
 class SendSmsCodeSerializer(Serializer):
@@ -35,41 +27,74 @@ class SendSmsCodeSerializer(Serializer):
         return super().validate(attrs)
 
 
-class VerifySmsCodeSerializer(Serializer):
-    code = IntegerField()
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+from django.contrib.auth import authenticate, get_user_model
+from rest_framework_simplejwt.tokens import RefreshToken, Token
+import re
+from typing import Any
+
+User = get_user_model()
+
+class VerifySmsCodeSerializer(serializers.Serializer):
+    phone = serializers.CharField(default='901001010')
+    code = serializers.IntegerField(default=100100)
     token_class = RefreshToken
 
-    def validate(self, attrs):
-        request = self.context['request']
-        phone = cache.get(f"verify:current_phone:{request.session.session_key}")
+    def validate_phone(self, value):
+        digits = re.findall(r'\d', value)
+        if len(digits) < 9:
+            raise ValidationError('Phone number must be at least 9 digits')
+        phone = ''.join(digits)
+        return phone.removeprefix('998')
 
-        if not phone:
-            raise ValidationError({'message': "Telefon raqam topilmadi. Qaytadan urinib ko‘ring"})
+    def validate(self, attrs: dict[str, Any]):
+        phone_number = attrs['phone']
 
-        code = attrs.get("code")
-        if not check_sms_code(phone, code):
-            raise ValidationError({"message": "Kod noto‘g‘ri yoki muddati tugagan"})
+        try:
+            user_obj = User.objects.get(phone=phone_number)
 
-        # ✅ Agar user mavjud bo‘lmasa, yangi user yaratamiz
-        user, created = User.objects.get_or_create(phone=phone)
-        if created:
-            user.set_unusable_password()
-            user.save()
+            authenticated_user = authenticate(phone=phone_number, request=self.context['request'])
+            if authenticated_user is not None:
+                self.user = authenticated_user
+            else:
+                if not user_obj.is_active:
+                    raise ValidationError("Foydalanuvchi faol emas. Ma'muriyatga murojaat qiling.")
+                self.user = user_obj
 
-        attrs["user"] = user
+        except User.DoesNotExist:
+            try:
+                self.user = User.objects.create(phone=phone_number)
+                self.is_new_user = True
+            except Exception as e:
+                print(f"User yaratishda xato: {e}")
+                raise ValidationError(
+                    "Foydalanuvchini yaratishda kutilmagan xato yuz berdi. Iltimos, keyinroq urinib ko'ring.")
+
+        if self.user is None or not self.user.is_active:
+            raise ValidationError("Foydalanuvchini topish, yaratish yoki faollikni tekshirishda xato yuz berdi.")
+
         return attrs
 
     @property
     def get_data(self):
-        user = self.validated_data["user"]
-        refresh = self.token_class.for_user(user)
+        refresh = self.get_token(self.user)
         data = {
-            "access_token": str(refresh.access_token),
-            "refresh_token": str(refresh),
-            "user": UserModelSerializer(user).data
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh)
         }
-        return {"message": "OK", "data": data}
+        user_data = UserModelSerializer(self.user).data
 
+        return {
+            'message': 'OK.',
+            'data': {
+                **data, **{'user': user_data}
+            }
+        }
+
+    @classmethod
+    def get_token(cls, user) -> Token:
+        return cls.token_class.for_user(user)
 
 
 class UserModelSerializer(serializers.ModelSerializer):
@@ -83,7 +108,7 @@ class UserModelSerializer(serializers.ModelSerializer):
 class CommentModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'user', 'comment']
+        fields = ['id', 'user', 'rate']
 
 
 class ProductImageModelSerializer(serializers.ModelSerializer):
@@ -99,7 +124,7 @@ class ProductModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'images', 'final_price', 'comments']
+        fields = ['id', 'name', 'images', 'final_price', 'comments']
 
 
 class CategoryModelSerializer(serializers.ModelSerializer):
