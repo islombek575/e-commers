@@ -6,9 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Category, Product, Like
-from .models.products import Comment
+from .models.products import Comment, SubCategory
 from .serializers import CategoryModelSerializer, ProductModelSerializer, LikeSerializer, SendSmsCodeSerializer, \
-    VerifySmsCodeSerializer
+    VerifySmsCodeSerializer, CommentModelSerializer, SubCategoryModelSerializer
 from .utils import random_code, send_sms_code, check_sms_code
 
 
@@ -41,9 +41,13 @@ class LoginAPIView(APIView):
 
         return Response(serializer.get_data)
 
+class SubCategoryListView(ListAPIView):
+    queryset = SubCategory.objects.all()
+    serializer_class = SubCategoryModelSerializer
+
 
 class CategoryListView(ListAPIView):
-    queryset = Category.objects.all().order_by('name')
+    queryset = Category.objects.all()
     serializer_class = CategoryModelSerializer
 
 
@@ -68,7 +72,7 @@ class LikeCreateView(CreateAPIView):
 
 class CommentCreateView(CreateAPIView):
     queryset = Comment.objects.all().filter()
-    serializer_class = CategoryModelSerializer
+    serializer_class = CommentModelSerializer
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):

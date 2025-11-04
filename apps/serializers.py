@@ -5,7 +5,7 @@ from .models import (
     Category, Product,
     ProductImage, Like, User
 )
-from .models.products import Comment
+from .models.products import Comment, SubCategory
 
 
 class SendSmsCodeSerializer(Serializer):
@@ -120,20 +120,21 @@ class ProductImageModelSerializer(serializers.ModelSerializer):
 class ProductModelSerializer(serializers.ModelSerializer):
     images = ProductImageModelSerializer(many=True, read_only=True)
     final_price = serializers.ReadOnlyField()
-    comments = CommentModelSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'images', 'final_price', 'comments']
+        fields = ['id', 'name', 'images', 'final_price']
 
 
 class CategoryModelSerializer(serializers.ModelSerializer):
-    products = ProductModelSerializer(many=True, read_only=True)
-
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'icon', 'products']
+        fields = ['id', 'name', 'slug', 'icon']
 
+class SubCategoryModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubCategory
+        fields = ['id', 'name', 'slug', 'icon']
 
 class LikeSerializer(serializers.ModelSerializer):
     user = UserModelSerializer(read_only=True)
