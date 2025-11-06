@@ -4,9 +4,9 @@
     "pk": "1",
     "fields": {
       "name": "Elektronika",
-      "slug": "elektronika",
+      "slug": "elektronika-1",
       "icon": "categories/icon/electronics.png",
-      "parent": "1"
+      "parent": null
     }
   },
   {
@@ -14,7 +14,7 @@
     "pk": "2",
     "fields": {
       "name": "Kiyim-kechak",
-      "slug": "kiyim-kechak",
+      "slug": "kiyim-kechak-2",
       "icon": "categories/icon/clothes.png",
       "parent": null
     }
@@ -24,7 +24,7 @@
     "pk": "3",
     "fields": {
       "name": "Smartfonlar",
-      "slug": "smartfonlar",
+      "slug": "smartfonlar-3",
       "icon": "categories/icon/smartphones.png",
       "parent": "1"
     }
@@ -34,9 +34,9 @@
     "pk": "4",
     "fields": {
       "name": "T-shirtlar",
-      "slug": "t-shirtlar",
+      "slug": "t-shirtlar-4",
       "icon": "categories/icon/tshirts.png",
-      "parent": null
+      "parent": "2"
     }
   },
   {
@@ -44,7 +44,7 @@
     "pk": "5",
     "fields": {
       "name": "Laptoplar",
-      "slug": "laptoplar",
+      "slug": "laptoplar-5",
       "icon": "categories/icon/laptops.png",
       "parent": "1"
     }
