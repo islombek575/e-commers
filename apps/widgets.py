@@ -1,6 +1,8 @@
+import json
+
 from django import forms
 from django.utils.safestring import mark_safe
-import json
+
 
 class KeyValueWidget(forms.Widget):
     def render(self, name, value, attrs=None, renderer=None):

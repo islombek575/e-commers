@@ -1,0 +1,46 @@
+[
+  {
+    "model": "apps.cart",
+    "pk": "1",
+    "fields": {
+      "customer": "2"
+    }
+  },
+  {
+    "model": "apps.cartitem",
+    "pk": "1",
+    "fields": {
+      "cart": "1",
+      "product_version": "3",
+      "quantity": 1,
+      "price": 11400000
+    }
+  },
+  {
+    "model": "apps.cartitem",
+    "pk": "2",
+    "fields": {
+      "cart": "2",
+      "product_version": "4",
+      "quantity": 2,
+      "price": 13500000
+    }
+  },
+  {
+    "model": "apps.cart",
+    "pk": "2",
+    "fields": {
+      "customer": "3"
+    }
+  },
+  {
+    "model": "apps.cartitem",
+    "pk": "3",
+    "fields": {
+      "cart": "2",
+      "product_version": "2",
+      "quantity": 3,
+      "price": 150000
+    }
+  }
+]

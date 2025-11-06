@@ -1,9 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from apps.models import Category, ProductImage, Like
-from .models import Product
-from .models import User
+from apps.models import Category, Like, Order, ProductImage
+from .models import Product, User
 from .models.products import Comment, ProductVersion
 
 
@@ -15,7 +14,6 @@ class ProductImageInline(admin.TabularInline):
 class ProductVersionInline(admin.TabularInline):
     model = ProductVersion
     extra = 1
-    # form = ProductVersionForm
 
 
 @admin.register(Product)
@@ -45,6 +43,11 @@ class UserModelAdmin(UserAdmin):
     list_display = ('phone', 'email', 'is_staff', 'is_superuser')
     search_fields = ('phone', 'email')
     ordering = ('-id',)
+
+
+@admin.register(Order)
+class OrderModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'customer', 'total_price', 'payment_method', 'status', 'created_at']
 
 
 admin.site.register(Category)

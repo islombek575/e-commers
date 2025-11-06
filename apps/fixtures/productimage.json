@@ -1,0 +1,42 @@
+[
+  {
+    "model": "apps.productimage",
+    "pk": 1,
+    "fields": {
+      "product": "1",
+      "image": "media/products/s23_main.jpg"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 2,
+    "fields": {
+      "product": "2",
+      "image": "media/products/s23_side.jpg"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 3,
+    "fields": {
+      "product": "2",
+      "image": "media/products/macbook_air_m2.png"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 4,
+    "fields": {
+      "product": "3",
+      "image": "media/products/tshirt_white.jpg"
+    }
+  },
+  {
+    "model": "apps.productimage",
+    "pk": 5,
+    "fields": {
+      "product": "4",
+      "image": "media/products/lenovo_legion_5.jpg"
+    }
+  }
+]

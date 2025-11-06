@@ -1,9 +1,9 @@
-from django.conf.urls.i18n import i18n_patterns
-from django.contrib import admin
-from django.urls import path, include
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = i18n_patterns(
     path("ckeditor5/", include('django_ckeditor_5.urls')),

@@ -1,9 +1,9 @@
-# orders.py
-from django.db.models import CharField, ForeignKey, CASCADE, BigIntegerField, IntegerField
+from django.db.models import (CASCADE, BigIntegerField, CharField, ForeignKey,
+                              IntegerField)
 from django.db.models.enums import TextChoices
 from django.utils.translation import gettext_lazy as _
 
-from apps.models.base import UUIDBaseModel, CreatedBaseModel
+from apps.models.base import CreatedBaseModel, UUIDBaseModel
 
 
 class Order(UUIDBaseModel, CreatedBaseModel):

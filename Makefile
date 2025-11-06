@@ -16,4 +16,4 @@ compile:
 	django-admin compilemessages -i .venv
 
 loaddata:
-	python manage.py loaddata users categories products
+	python manage.py loaddata users categories products productversion productimage like comments orders

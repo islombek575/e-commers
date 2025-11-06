@@ -1,11 +1,12 @@
-from django.db.models import Model, ForeignKey, CASCADE, ImageField, BigIntegerField, JSONField
-from django.db.models.fields import IntegerField, DateField, DateTimeField
+from django.db.models import (CASCADE, BigIntegerField, ForeignKey, ImageField,
+                              JSONField, Model)
+from django.db.models.fields import DateField, DateTimeField, IntegerField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
-from apps.models.base import SlugBaseModel, CreatedBaseModel
+from apps.models.base import CreatedBaseModel, SlugBaseModel
 
 
 class Category(SlugBaseModel):
@@ -64,8 +65,9 @@ class Comment(Model):
     user = ForeignKey('apps.User', CASCADE)
     created_at = DateTimeField(auto_now_add=True)
 
+
     def __str__(self):
-        return self.rate
+        return f"{self.rate}/5 | {self.product.name} uchun sharh"
 
 
 class Like(Model):

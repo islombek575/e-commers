@@ -1,0 +1,62 @@
+[
+  {
+    "model": "apps.product",
+    "pk": "1",
+    "fields": {
+      "name": "Samsung Galaxy S23",
+      "slug": "samsung-galaxy-s23",
+      "created_at": "2025-02-01T10:00:00Z",
+      "category": "1",
+      "description": "<p>Samsungning eng so'nggi flagmani.</p>",
+      "deliver_date": "2025-02-15"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": "2",
+    "fields": {
+      "name": "Apple MacBook Air M2",
+      "slug": "apple-macbook-air-m2",
+      "created_at": "2025-02-05T11:00:00Z",
+      "category": "2",
+      "description": "<p>Yengil va kuchli Apple noutbuki.</p>",
+      "deliver_date": "2025-02-20"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": "3",
+    "fields": {
+      "name": "Basic Crew Neck T-shirt",
+      "slug": "basic-crew-neck-t-shirt",
+      "created_at": "2025-02-10T12:00:00Z",
+      "category": "3",
+      "description": "<p>Kunlik foydalanish uchun qulay T-shirt.</p>",
+      "deliver_date": "2025-02-18"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": "4",
+    "fields": {
+      "name": "Xiaomi 13 Pro",
+      "slug": "xiaomi-13-pro",
+      "created_at": "2025-02-15T13:00:00Z",
+      "category": "2",
+      "description": "<p>Katta kamerali smartfon.</p>",
+      "deliver_date": "2025-02-25"
+    }
+  },
+  {
+    "model": "apps.product",
+    "pk": "5",
+    "fields": {
+      "name": "Lenovo Legion 5",
+      "slug": "lenovo-legion-5",
+      "created_at": "2025-02-20T14:00:00Z",
+      "category": "1",
+      "description": "<p>Gamerlar uchun noutbuk.</p>",
+      "deliver_date": "2025-03-01"
+    }
+  }
+]

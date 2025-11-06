@@ -1,0 +1,87 @@
+[
+  {
+    "model": "apps.user",
+    "pk": "2",
+    "fields": {
+      "password": "pbkdf2_sha256$600000$zVvK6BwFzSgE$Qx1p7L4x7U8Vq6P1y6W4X5T3S2R1A0B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6",
+      "last_login": null,
+      "is_superuser": true,
+      "phone": "901234567",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-01-01T10:00:00Z",
+      "address": "Tashkent, Uzbekistan"
+    }
+  },
+  {
+    "model": "apps.user",
+    "pk": "3",
+    "fields": {
+      "password": "pbkdf2_sha256$600000$aBcDeFgHiJkL$mNoPqRsTuVwXyZ0aBcDeFgHiJkL3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7",
+      "last_login": null,
+      "is_superuser": false,
+      "phone": "998765432",
+      "first_name": "Ali",
+      "last_name": "Valiyev",
+      "email": "ali@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-01-05T11:30:00Z",
+      "address": "Samarkand, Uzbekistan"
+    }
+  },
+  {
+    "model": "apps.user",
+    "pk": "4",
+    "fields": {
+      "password": "pbkdf2_sha256$600000$bFkO8PzLqMnG$xYxXwVwUuTtSsRrQqPpOoNnMmLlKkJjIiHhGgFfEeDdCcBbAaZzYyXxWwVvUuT",
+      "last_login": null,
+      "is_superuser": false,
+      "phone": "975432109",
+      "first_name": "Nigina",
+      "last_name": "Karimova",
+      "email": "nigina@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-01-10T14:45:00Z",
+      "address": "Bukhara, Uzbekistan"
+    }
+  },
+  {
+    "model": "apps.user",
+    "pk": "5",
+    "fields": {
+      "password": "pbkdf2_sha256$600000$yXzWvUvTsRqPpO$qRrSsTtUuVvWwXxYyZz0A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V",
+      "last_login": null,
+      "is_superuser": false,
+      "phone": "931112233",
+      "first_name": "Javohir",
+      "last_name": "Sobirov",
+      "email": "javohir@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-01-15T09:15:00Z",
+      "address": "Andijan, Uzbekistan"
+    }
+  },
+  {
+    "model": "apps.user",
+    "pk": "6",
+    "fields": {
+      "password": "pbkdf2_sha256$600000$zZzYyXxWwVvUuT$sRrQqPpOoNnMmLlKkJjIiHhGgFfEeDdCcBbAaZzYyXxWwVvUuTtSsRrQqPpO",
+      "last_login": null,
+      "is_superuser": false,
+      "phone": "945556677",
+      "first_name": "Madina",
+      "last_name": "Tursunova",
+      "email": "madina@example.com",
+      "is_staff": false,
+      "is_active": false,
+      "date_joined": "2025-01-20T16:00:00Z",
+      "address": "Fergana, Uzbekistan"
+    }
+  }
+]

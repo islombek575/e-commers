@@ -1,10 +1,14 @@
+import re
+from typing import Any
+
+from django.contrib.auth import authenticate
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 from rest_framework.fields import CharField
 from rest_framework.serializers import Serializer
+from rest_framework_simplejwt.tokens import RefreshToken, Token
 
-from .models import (
-    Category, Product,
-    ProductImage, Like, User
-)
+from .models import Category, Like, Product, ProductImage, User
 from .models.products import Comment
 
 
@@ -25,16 +29,6 @@ class SendSmsCodeSerializer(Serializer):
         user.set_unusable_password()
 
         return super().validate(attrs)
-
-
-from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
-from django.contrib.auth import authenticate, get_user_model
-from rest_framework_simplejwt.tokens import RefreshToken, Token
-import re
-from typing import Any
-
-User = get_user_model()
 
 
 class VerifySmsCodeSerializer(serializers.Serializer):
@@ -66,7 +60,6 @@ class VerifySmsCodeSerializer(serializers.Serializer):
         except User.DoesNotExist:
             try:
                 self.user = User.objects.create(phone=phone_number)
-                self.is_new_user = True
             except Exception as e:
                 print(f"User yaratishda xato: {e}")
                 raise ValidationError(

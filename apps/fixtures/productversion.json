@@ -1,0 +1,62 @@
+[
+  {
+    "model": "apps.productversion",
+    "pk": "1",
+    "fields": {
+      "product": "1",
+      "name": "256GB, Yashil",
+      "slug": "256gb-yashil",
+      "price": 12000000,
+      "discount": 5,
+      "attributes": {"color": "Green", "storage": "256GB"}
+    }
+  },
+  {
+    "model": "apps.productversion",
+    "pk": "2",
+    "fields": {
+      "product": "2",
+      "name": "512GB, Qora",
+      "slug": "512gb-qora",
+      "price": 13500000,
+      "discount": 0,
+      "attributes": {"color": "Black", "storage": "512GB"}
+    }
+  },
+  {
+    "model": "apps.productversion",
+    "pk": "3",
+    "fields": {
+      "product": "3",
+      "name": "8GB/256GB, Kumush",
+      "slug": "8gb-256gb-kumush",
+      "price": 15000000,
+      "discount": 10,
+      "attributes": {"RAM": "8GB", "SSD": "256GB"}
+    }
+  },
+  {
+    "model": "apps.productversion",
+    "pk": "4",
+    "fields": {
+      "product": "4",
+      "name": "Katta (L), Oq",
+      "slug": "katta-l-oq",
+      "price": 150000,
+      "discount": 0,
+      "attributes": {"size": "L", "color": "White"}
+    }
+  },
+  {
+    "model": "apps.productversion",
+    "pk": "5",
+    "fields": {
+      "product": "2",
+      "name": "RTX 3060, 16GB RAM",
+      "slug": "rtx-3060-16gb-ram",
+      "price": 20000000,
+      "discount": 0,
+      "attributes": {"GPU": "RTX 3060", "RAM": "16GB"}
+    }
+  }
+]

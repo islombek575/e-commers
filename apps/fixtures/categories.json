@@ -1,0 +1,52 @@
+[
+  {
+    "model": "apps.category",
+    "pk": "1",
+    "fields": {
+      "name": "Elektronika",
+      "slug": "elektronika",
+      "icon": "categories/icon/electronics.png",
+      "parent": "1"
+    }
+  },
+  {
+    "model": "apps.category",
+    "pk": "2",
+    "fields": {
+      "name": "Kiyim-kechak",
+      "slug": "kiyim-kechak",
+      "icon": "categories/icon/clothes.png",
+      "parent": null
+    }
+  },
+  {
+    "model": "apps.category",
+    "pk": "3",
+    "fields": {
+      "name": "Smartfonlar",
+      "slug": "smartfonlar",
+      "icon": "categories/icon/smartphones.png",
+      "parent": "1"
+    }
+  },
+  {
+    "model": "apps.category",
+    "pk": "4",
+    "fields": {
+      "name": "T-shirtlar",
+      "slug": "t-shirtlar",
+      "icon": "categories/icon/tshirts.png",
+      "parent": null
+    }
+  },
+  {
+    "model": "apps.category",
+    "pk": "5",
+    "fields": {
+      "name": "Laptoplar",
+      "slug": "laptoplar",
+      "icon": "categories/icon/laptops.png",
+      "parent": "1"
+    }
+  }
+]

@@ -1,6 +1,7 @@
 import uuid
 
-from django.db.models import Model, DateTimeField, SlugField, UUIDField, CharField
+from django.db.models import (CharField, DateTimeField, Model, SlugField,
+                              UUIDField)
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 

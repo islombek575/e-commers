@@ -1,0 +1,42 @@
+[
+  {
+    "model": "apps.like",
+    "pk": 1,
+    "fields": {
+      "product": "2",
+      "user": "1"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 2,
+    "fields": {
+      "product": "3",
+      "user": "3"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 3,
+    "fields": {
+      "product": "2",
+      "user": "3"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 4,
+    "fields": {
+      "product": "2",
+      "user": "4"
+    }
+  },
+  {
+    "model": "apps.like",
+    "pk": 5,
+    "fields": {
+      "product": "1",
+      "user": "3"
+    }
+  }
+]
