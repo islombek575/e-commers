@@ -28,9 +28,18 @@ class SlugBaseModel(Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        if not self.slug and hasattr(self, "name"):
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
+        creating = self._state.adding
+        if creating:
+            super().save(*args, **kwargs)
+
+            base_slug = slugify(self.name)
+            self.slug = f"{base_slug}-{self.id}"
+
+            super().save(update_fields=['slug'])
+        else:
+            base_slug = slugify(self.name)
+            self.slug = f"{base_slug}-{self.id}"
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name

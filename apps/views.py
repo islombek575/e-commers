@@ -3,14 +3,15 @@ from apps.serializers import (
     CategoryModelSerializer,
     CommentModelSerializer,
     LikeSerializer,
-    ProductModelSerializer,
+    ProductDetailModelSerializer,
+    ProductListModelSerializer,
     SendSmsCodeSerializer,
     VerifySmsCodeSerializer,
 )
 from apps.utils import check_sms_code, random_code, send_sms_code
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
-from rest_framework.generics import CreateAPIView, ListAPIView, ListCreateAPIView, RetrieveAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -22,12 +23,18 @@ class SendCodeAPIView(APIView):
     authentication_classes = ()
 
     def post(self, request, *args, **kwargs):
-        serializer = SendSmsCodeSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-        code = random_code()
-        phone = serializer.data['phone']
-        send_sms_code(phone, code)
-        return Response({"message": "send sms code"})
+        phone = serializer.validated_data['phone']
+
+        result = send_sms_code(phone)
+        if not result["success"]:
+            return Response(
+                {"message": f"Please wait {result['remaining']} seconds before requesting a new code."},
+                status=429
+            )
+
+        return Response({"message": f"SMS code sent. You have {result['remaining']} seconds before requesting again."})
 
 
 @extend_schema(tags=['Auth'])
@@ -47,18 +54,18 @@ class LoginAPIView(APIView):
 
 
 class CategoryListView(ListAPIView):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().filter(parent__isnull=True)
     serializer_class = CategoryModelSerializer
 
 
-class ProductListView(ListCreateAPIView):
-    queryset = Product.objects.select_related('category')
-    serializer_class = ProductModelSerializer
+class ProductListView(ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductListModelSerializer
 
 
 class ProductDetailView(RetrieveAPIView):
     queryset = Product.objects.all()
-    serializer_class = ProductModelSerializer
+    serializer_class = ProductDetailModelSerializer
 
 
 class LikeCreateView(CreateAPIView):

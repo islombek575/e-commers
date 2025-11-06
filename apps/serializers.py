@@ -9,7 +9,7 @@ from rest_framework.serializers import Serializer
 from rest_framework_simplejwt.tokens import RefreshToken, Token
 
 from .models import Category, Like, Product, ProductImage, User
-from .models.products import Comment
+from .models.products import Comment, ProductVersion
 
 
 class SendSmsCodeSerializer(Serializer):
@@ -111,24 +111,45 @@ class ProductImageModelSerializer(serializers.ModelSerializer):
         fields = ['id', 'image']
 
 
-class ProductModelSerializer(serializers.ModelSerializer):
+class ProductVersionModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductVersion
+        fields = '__all__'
+
+
+class ProductListModelSerializer(serializers.ModelSerializer):
     images = ProductImageModelSerializer(many=True, read_only=True)
-    final_price = serializers.ReadOnlyField()
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'images', 'final_price']
+        fields = ['id', 'slug', 'name', 'images', 'price']
+
+
+class ProductDetailModelSerializer(serializers.ModelSerializer):
+    images = ProductImageModelSerializer(many=True, read_only=True)
+    product_versions = ProductVersionModelSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Product
+        fields = '__all__'
 
 
 class CategoryModelSerializer(serializers.ModelSerializer):
+    sub_categories = serializers.SerializerMethodField()
+
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'icon']
+        fields = ['id', 'slug', 'icon', 'sub_categories']
+
+    def get_sub_categories(self, obj):
+        sub_cats = obj.sub_categories.all()
+        serializer = CategoryModelSerializer(sub_cats, many=True, context=self.context)
+        return serializer.data
 
 
 class LikeSerializer(serializers.ModelSerializer):
     user = UserModelSerializer(read_only=True)
-    product = ProductModelSerializer(read_only=True)
+    product = ProductListModelSerializer(read_only=True)
 
     class Meta:
         model = Like

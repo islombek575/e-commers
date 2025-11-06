@@ -1,11 +1,16 @@
-from django.db.models import CASCADE, BigIntegerField, ForeignKey, ImageField, JSONField, Model, SET_NULL
+from apps.models.base import CreatedBaseModel, SlugBaseModel
+from django.db.models import (
+    CASCADE,
+    SET_NULL,
+    BigIntegerField,
+    ForeignKey,
+    ImageField,
+    JSONField,
+    Model,
+)
 from django.db.models.fields import DateField, DateTimeField, IntegerField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
-from drf_spectacular.utils import extend_schema_field
-from rest_framework import serializers
-
-from apps.models.base import CreatedBaseModel, SlugBaseModel
 
 
 class Category(SlugBaseModel):
@@ -26,9 +31,16 @@ class Product(SlugBaseModel, CreatedBaseModel):
         verbose_name = _('product')
         verbose_name_plural = _('products')
 
+    @property
+    def price(self):
+        versions = self.product_versions.all()
+        if versions.exists():
+            return min(v.final_price for v in versions)
+        return None
+
 
 class ProductVersion(SlugBaseModel):
-    product = ForeignKey('apps.Product', CASCADE)
+    product = ForeignKey('apps.Product', CASCADE, related_name='product_versions')
     price = BigIntegerField(_('Price'))
     discount = IntegerField(_('Discount'), default=0)
     attributes = JSONField(_('Attributes'), null=True, blank=True)
@@ -38,7 +50,6 @@ class ProductVersion(SlugBaseModel):
         verbose_name_plural = _('product versions')
 
     @property
-    @extend_schema_field(serializers.FloatField())
     def final_price(self):
         if self.discount:
             return self.price - (self.price * self.discount / 100)
@@ -46,7 +57,7 @@ class ProductVersion(SlugBaseModel):
 
 
 class ProductImage(Model):
-    product = ForeignKey('apps.Product', CASCADE)
+    product = ForeignKey('apps.Product', CASCADE, related_name='images')
     image = ImageField(verbose_name=_('Image'), upload_to='media/products/', null=True, blank=True)
 
     def __str__(self):
