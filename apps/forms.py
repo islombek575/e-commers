@@ -1,7 +1,6 @@
+from apps.models import ProductVersion
 from django import forms
 from django_json_widget.widgets import JSONEditorWidget
-
-from apps.models import ProductVersion
 
 
 class ProductVersionForm(forms.ModelForm):

@@ -21,3 +21,8 @@ dependencies = [
     "isort>=7.0.0",
     "flake8>=7.3.0",
 ]
+
+[tool.isort]
+profile = "hug"
+skip = "build,.tox,.venv"
+src_paths="isort,test"

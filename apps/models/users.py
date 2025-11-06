@@ -1,14 +1,13 @@
 import re
 
+from apps.models.base import CreatedBaseModel
+from apps.models.managers import UserManager
 from django.contrib.auth.models import AbstractUser
 from django.db.models import ImageField
 from django.db.models.fields import CharField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from jsonschema.exceptions import ValidationError
-
-from apps.models.base import CreatedBaseModel
-from apps.models.managers import UserManager
 
 
 class User(AbstractUser):

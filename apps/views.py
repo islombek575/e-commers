@@ -1,16 +1,19 @@
+from apps.models import Category, Comment, Like, Product
+from apps.serializers import (
+    CategoryModelSerializer,
+    CommentModelSerializer,
+    LikeSerializer,
+    ProductModelSerializer,
+    SendSmsCodeSerializer,
+    VerifySmsCodeSerializer,
+)
+from apps.utils import check_sms_code, random_code, send_sms_code
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
-from rest_framework.generics import (CreateAPIView, ListAPIView,
-                                     ListCreateAPIView, RetrieveAPIView)
+from rest_framework.generics import CreateAPIView, ListAPIView, ListCreateAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-from apps.models import Category, Comment, Like, Product
-from apps.serializers import (CategoryModelSerializer, CommentModelSerializer,
-                              LikeSerializer, ProductModelSerializer,
-                              SendSmsCodeSerializer, VerifySmsCodeSerializer)
-from apps.utils import check_sms_code, random_code, send_sms_code
 
 
 @extend_schema(tags=['Auth'])

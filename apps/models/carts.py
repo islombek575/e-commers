@@ -1,7 +1,6 @@
+from apps.models.base import UUIDBaseModel
 from django.db.models import CASCADE, BigIntegerField, ForeignKey, IntegerField
 from django.utils.translation import gettext_lazy as _
-
-from apps.models.base import UUIDBaseModel
 
 
 class Cart(UUIDBaseModel):

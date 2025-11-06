@@ -1,7 +1,7 @@
+from apps.models import Category, Like, Order, ProductImage
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from apps.models import Category, Like, Order, ProductImage
 from .models import Product, User
 from .models.products import Comment, ProductVersion
 
