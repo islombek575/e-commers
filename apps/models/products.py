@@ -1,15 +1,16 @@
-from apps.models.base import CreatedBaseModel, SlugBaseModel
-from django.db.models import CASCADE, BigIntegerField, ForeignKey, ImageField, JSONField, Model
+from django.db.models import CASCADE, BigIntegerField, ForeignKey, ImageField, JSONField, Model, SET_NULL
 from django.db.models.fields import DateField, DateTimeField, IntegerField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
+from apps.models.base import CreatedBaseModel, SlugBaseModel
+
 
 class Category(SlugBaseModel):
     icon = ImageField(_('Icon'), upload_to='categories/icon/')
-    parent = ForeignKey('apps.Category', CASCADE, null=True, blank=True, related_name='sub_categories')
+    parent = ForeignKey('self', SET_NULL, null=True, blank=True, related_name='sub_categories')
 
     class Meta:
         verbose_name = _('category')
