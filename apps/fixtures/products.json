@@ -1,62 +1,67 @@
 [
   {
-    "model": "apps.product",
-    "pk": "1",
+    "model": "apps.Product",
+    "pk": 1,
     "fields": {
       "name": "Samsung Galaxy S23",
       "slug": "samsung-galaxy-s23-1",
-      "created_at": "2025-02-01T10:00:00Z",
-      "category": "1",
-      "description": "<p>Samsungning eng so'nggi flagmani.</p>",
-      "deliver_date": "2025-02-15"
+      "category": 2,
+      "description": "Samsung Galaxy S23 smartfoni, 256GB xotira.",
+      "deliver_date": "2025-11-15",
+      "shop": 1,
+      "created_at": "2024-06-01T10:00:00Z"
     }
   },
   {
-    "model": "apps.product",
-    "pk": "2",
+    "model": "apps.Product",
+    "pk": 2,
     "fields": {
-      "name": "Apple MacBook Air M2",
-      "slug": "apple-macbook-air-m2-2",
-      "created_at": "2025-02-05T11:00:00Z",
-      "category": "2",
-      "description": "<p>Yengil va kuchli Apple noutbuki.</p>",
-      "deliver_date": "2025-02-20"
+      "name": "LG Kir yuvish mashinasi",
+      "slug": "lg-kir-yuvish-mashinasi-2",
+      "category": 3,
+      "description": "LG 8kg sig'imli, inverter dvigatelli kir yuvish mashinasi.",
+      "deliver_date": "2025-11-20",
+      "shop": 3,
+      "created_at": "2024-06-05T11:00:00Z"
     }
   },
   {
-    "model": "apps.product",
-    "pk": "3",
+    "model": "apps.Product",
+    "pk": 3,
     "fields": {
-      "name": "Basic Crew Neck T-shirt",
-      "slug": "basic-crew-neck-t-shirt-3",
-      "created_at": "2025-02-10T12:00:00Z",
-      "category": "3",
-      "description": "<p>Kunlik foydalanish uchun qulay T-shirt.</p>",
-      "deliver_date": "2025-02-18"
+      "name": "Ayollar uzun ko'ylagi",
+      "slug": "ayollar-uzun-ko'ylagi-3",
+      "category": 5,
+      "description": "Yangi mavsum uchun zamonaviy va yengil uzun ko'ylak.",
+      "deliver_date": "2025-11-10",
+      "shop": 2,
+      "created_at": "2024-06-10T12:00:00Z"
     }
   },
   {
-    "model": "apps.product",
-    "pk": "4",
+    "model": "apps.Product",
+    "pk": 4,
     "fields": {
-      "name": "Xiaomi 13 Pro",
-      "slug": "xiaomi-13-pro-4",
-      "created_at": "2025-02-15T13:00:00Z",
-      "category": "2",
-      "description": "<p>Katta kamerali smartfon.</p>",
-      "deliver_date": "2025-02-25"
+      "name": "Xiaomi Power Bank 20000 mAh",
+      "slug": "xiaomi-power-bank-20000-mah-4",
+      "category": 2,
+      "description": "Xiaomi Power Bank, tez zaryadlash funksiyasi bilan.",
+      "deliver_date": "2025-11-12",
+      "shop": 4,
+      "created_at": "2024-06-15T13:00:00Z"
     }
   },
   {
-    "model": "apps.product",
-    "pk": "5",
+    "model": "apps.Product",
+    "pk": 5,
     "fields": {
-      "name": "Lenovo Legion 5",
-      "slug": "lenovo-legion-5-5",
-      "created_at": "2025-02-20T14:00:00Z",
-      "category": "1",
-      "description": "<p>Gamerlar uchun noutbuk.</p>",
-      "deliver_date": "2025-03-01"
+      "name": "Organik qizil olma (1kg)",
+      "slug": "organik-qizil-olma-1kg-5",
+      "category": 5,
+      "description": "Farg'ona vodiysidan keltirilgan organik qizil olma.",
+      "deliver_date": "2025-11-09",
+      "shop": 5,
+      "created_at": "2024-06-20T14:00:00Z"
     }
   }
 ]

@@ -12,13 +12,15 @@ dependencies = [
     "psycopg2-binary>=2.9.10",
     "python-dotenv>=1.1.1",
     "djangorestframework-simplejwt>=5.5.1",
-    "redis==5.0.1",
     "django-ckeditor-5>=0.2.18",
     "isort>=7.0.0",
     "flake8>=7.3.0",
     "django-admin-json-editor>=0.2.3",
     "jsoneditor>=1.6.0",
     "django-json-widget>=2.1.0",
+    "booktype>=1.5",
+    "redis>=5.0.1",
+    "django-filter>=25.2",
 ]
 
 [tool.isort]

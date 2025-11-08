@@ -9,8 +9,8 @@ from apps.views import (
 from django.urls import path
 
 urlpatterns = [
-    path('auth/send-code', SendCodeAPIView.as_view(), name='token_obtain_pair'),
-    path('auth/verify-code', LoginAPIView.as_view(), name='token_obtain_pair'),
+    path('auth/send-code/', SendCodeAPIView.as_view(), name='token_obtain_pair'),
+    path('auth/verify-code/', LoginAPIView.as_view(), name='token_obtain_pair'),
     path('categories/', CategoryListView.as_view(), name='category_list'),
     path('products/', ProductListView.as_view(), name='product_list'),
     path('products/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),

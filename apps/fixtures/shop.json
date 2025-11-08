@@ -1,0 +1,62 @@
+[
+  {
+    "model": "apps.Shop",
+    "pk": 1,
+    "fields": {
+      "merchant": 1,
+      "name": "Global Tech Market",
+      "banner": "market/banner/tech_banner.jpg",
+      "logo": "market/logo/tech_logo.png",
+      "description": "Smartfonlar, noutbuklar va gadjetlarning eng katta tanlovi.",
+      "created_at": "2024-01-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "apps.Shop",
+    "pk": 2,
+    "fields": {
+      "merchant": 2,
+      "name": "Nigora Boutique",
+      "banner": "market/banner/fashion_banner.jpg",
+      "logo": "market/logo/boutique_logo.png",
+      "description": "Ayollar uchun eksklyuziv kiyim-kechaklar kolleksiyasi.",
+      "created_at": "2024-02-25T11:00:00Z"
+    }
+  },
+  {
+    "model": "apps.Shop",
+    "pk": 3,
+    "fields": {
+      "merchant": 1,
+      "name": "Global Home Appliances",
+      "banner": "market/banner/appliances_banner.jpg",
+      "logo": "market/logo/appliances_logo.png",
+      "description": "Maishiy texnika va uy uchun jihozlar.",
+      "created_at": "2024-03-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "apps.Shop",
+    "pk": 4,
+    "fields": {
+      "merchant": 3,
+      "name": "Davron Gadgets",
+      "banner": "market/banner/gadgets_banner.jpg",
+      "logo": "market/logo/gadgets_logo.png",
+      "description": "So'nggi rusumdagi gadjetlar va aksessuarlar.",
+      "created_at": "2024-04-05T13:00:00Z"
+    }
+  },
+  {
+    "model": "apps.Shop",
+    "pk": 5,
+    "fields": {
+      "merchant": 4,
+      "name": "Botirov Food Express",
+      "banner": "market/banner/food_banner.jpg",
+      "logo": "market/logo/food_logo.png",
+      "description": "Tez va sifatli oziq-ovqat yetkazib berish xizmati.",
+      "created_at": "2024-05-15T14:00:00Z"
+    }
+  }
+]

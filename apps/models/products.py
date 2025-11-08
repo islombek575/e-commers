@@ -11,6 +11,8 @@ from django.db.models import (
 from django.db.models.fields import DateField, DateTimeField, IntegerField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
+from drf_spectacular.utils import extend_schema_field
+from rest_framework import serializers
 
 
 class Category(SlugBaseModel):
@@ -26,12 +28,18 @@ class Product(SlugBaseModel, CreatedBaseModel):
     category = ForeignKey('apps.Category', CASCADE, related_name='products')
     description = CKEditor5Field(_('Description'))
     deliver_date = DateField(_('Delivery date'), null=True, blank=True)
+    shop = ForeignKey(
+        'apps.Shop',
+        on_delete=CASCADE,
+        related_name='products'
+    )
 
     class Meta:
         verbose_name = _('product')
         verbose_name_plural = _('products')
 
     @property
+    @extend_schema_field(serializers.FloatField())
     def price(self):
         versions = self.product_versions.all()
         if versions.exists():

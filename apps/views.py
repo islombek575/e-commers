@@ -1,4 +1,6 @@
+from apps.filters import ProductPriceFilter
 from apps.models import Category, Comment, Like, Product
+from apps.paginations import CustomProductPagination
 from apps.serializers import (
     CategoryModelSerializer,
     CommentModelSerializer,
@@ -9,6 +11,7 @@ from apps.serializers import (
     VerifySmsCodeSerializer,
 )
 from apps.utils import check_sms_code, random_code, send_sms_code
+from django.db.models import Min
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
@@ -23,18 +26,21 @@ class SendCodeAPIView(APIView):
     authentication_classes = ()
 
     def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data)
+        serializer = SendSmsCodeSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        phone = serializer.validated_data['phone']
+        phone = request.data.get("phone")
+        if not phone:
+            return Response({"detail": "Telefon raqami kerak!"}, status=status.HTTP_400_BAD_REQUEST)
 
-        result = send_sms_code(phone)
-        if not result["success"]:
-            return Response(
-                {"message": f"Please wait {result['remaining']} seconds before requesting a new code."},
-                status=429
-            )
+        code = random_code()
+        valid, _ttl = send_sms_code(phone, code)
 
-        return Response({"message": f"SMS code sent. You have {result['remaining']} seconds before requesting again."})
+        if valid:
+            return Response({"detail": "SMS yuborildi!"}, status=status.HTTP_200_OK)
+
+        return Response(
+            {"detail": f"Yana {int(_ttl)} soniyadan keyin yuborishingiz mumkin."},
+            status=status.HTTP_429_TOO_MANY_REQUESTS, )
 
 
 @extend_schema(tags=['Auth'])
@@ -61,6 +67,19 @@ class CategoryListView(ListAPIView):
 class ProductListView(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductListModelSerializer
+    pagination_class = CustomProductPagination
+
+    filterset_class = ProductPriceFilter
+
+    search_fields = ['name', 'slug', 'description', 'category__name', 'shop__name']
+
+    ordering_fields = ['name', 'price', 'created_at']
+    ordering = ['-created_at']
+
+    def get_queryset(self):
+        return super().get_queryset().annotate(
+            price=Min('product_versions__price')
+        )
 
 
 class ProductDetailView(RetrieveAPIView):

@@ -2,6 +2,7 @@ import re
 from typing import Any
 
 from django.contrib.auth import authenticate
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import CharField
@@ -122,7 +123,7 @@ class ProductListModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'slug', 'name', 'images', 'price']
+        fields = ['id', 'category', 'slug', 'name', 'images', 'price']
 
 
 class ProductDetailModelSerializer(serializers.ModelSerializer):
@@ -141,6 +142,7 @@ class CategoryModelSerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'slug', 'icon', 'sub_categories']
 
+    @extend_schema_field(serializers.ListField(child=serializers.DictField()))
     def get_sub_categories(self, obj):
         sub_cats = obj.sub_categories.all()
         serializer = CategoryModelSerializer(sub_cats, many=True, context=self.context)
