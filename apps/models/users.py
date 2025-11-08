@@ -1,13 +1,14 @@
 import re
 
-from apps.models.base import CreatedBaseModel
-from apps.models.managers import UserManager
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CASCADE, BooleanField, ForeignKey, ImageField, OneToOneField
 from django.db.models.fields import CharField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from jsonschema.exceptions import ValidationError
+
+from apps.models.base import CreatedBaseModel
+from apps.models.managers import UserManager
 
 
 class User(AbstractUser):
@@ -52,12 +53,7 @@ class User(AbstractUser):
 
 
 class Merchant(CreatedBaseModel):
-    user = OneToOneField(
-        'apps.User',
-        on_delete=CASCADE,
-        related_name='merchant_profile',
-        verbose_name=_('Foydalanuvchi')
-    )
+    user = OneToOneField('apps.User', CASCADE, related_name='merchant_profile', verbose_name=_('Foydalanuvchi'))
     company_name = CharField(_('Kompaniya nomi'), max_length=150)
     tin = CharField(_('STIR / INN'), max_length=15, unique=True)
     logo = ImageField(_('Logo'), upload_to='merchant/logos/', null=True, blank=True)
@@ -69,12 +65,7 @@ class Merchant(CreatedBaseModel):
 
 
 class Shop(CreatedBaseModel):
-    merchant = ForeignKey(
-        'apps.Merchant',
-        on_delete=CASCADE,
-        related_name='markets',
-        verbose_name=_('Merchant')
-    )
+    merchant = ForeignKey('apps.Merchant', CASCADE, related_name='markets', verbose_name=_('Merchant'))
     name = CharField(_('Name'), max_length=100)
     banner = ImageField(_('Banner'), upload_to='market/banner/')
     logo = ImageField(_('Logo'), upload_to='market/logo/')

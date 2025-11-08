@@ -1,4 +1,3 @@
-from apps.models.base import CreatedBaseModel, SlugBaseModel
 from django.db.models import (
     CASCADE,
     SET_NULL,
@@ -8,11 +7,13 @@ from django.db.models import (
     JSONField,
     Model,
 )
-from django.db.models.fields import DateField, DateTimeField, IntegerField
+from django.db.models.fields import DateField, IntegerField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
+
+from apps.models.base import CreatedBaseModel, SlugBaseModel
 
 
 class Category(SlugBaseModel):
@@ -66,7 +67,7 @@ class ProductVersion(SlugBaseModel):
 
 class ProductImage(Model):
     product = ForeignKey('apps.Product', CASCADE, related_name='images')
-    image = ImageField(verbose_name=_('Image'), upload_to='media/products/', null=True, blank=True)
+    image = ImageField(_('Image'), upload_to='media/products/', null=True, blank=True)
 
     def __str__(self):
         return self.product.name
@@ -76,23 +77,23 @@ class ProductImage(Model):
         verbose_name_plural = _('product images')
 
 
-class Comment(Model):
+class Comment(CreatedBaseModel):
     product = ForeignKey('apps.Product', CASCADE)
-    rate = IntegerField(verbose_name=_('Rate'), default=0)
-    image = ImageField(verbose_name=_('Image'), upload_to='media/products/', null=True, blank=True)
+    rate = IntegerField(_('Rate'), default=0)
+    image = ImageField(_('Image'), upload_to='media/products/', null=True, blank=True)
     user = ForeignKey('apps.User', CASCADE)
-    created_at = DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.rate}/5 | {self.product.name} uchun sharh"
 
 
 class Like(Model):
-    product = ForeignKey(Product, CASCADE, related_name='likes')
-    user = ForeignKey('apps.User', CASCADE, related_name='likes')
+    product = ForeignKey('apps.Product', CASCADE)
+    user = ForeignKey('apps.User', CASCADE)
 
     class Meta:
         unique_together = ('product', 'user')
+        default_related_name = 'likes'
 
     def __str__(self):
         return f"{self.user.phone} ❤️ {self.product.name}"

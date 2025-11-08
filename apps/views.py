@@ -36,11 +36,12 @@ class SendCodeAPIView(APIView):
         valid, _ttl = send_sms_code(phone, code)
 
         if valid:
-            return Response({"detail": "SMS yuborildi!"}, status=status.HTTP_200_OK)
+            return Response({"detail": "SMS yuborildi!"})
 
         return Response(
             {"detail": f"Yana {int(_ttl)} soniyadan keyin yuborishingiz mumkin."},
-            status=status.HTTP_429_TOO_MANY_REQUESTS, )
+            status=status.HTTP_429_TOO_MANY_REQUESTS
+        )
 
 
 @extend_schema(tags=['Auth'])
@@ -60,7 +61,7 @@ class LoginAPIView(APIView):
 
 
 class CategoryListView(ListAPIView):
-    queryset = Category.objects.all().filter(parent__isnull=True)
+    queryset = Category.objects.filter(parent__isnull=True)
     serializer_class = CategoryModelSerializer
 
 

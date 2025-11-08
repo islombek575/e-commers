@@ -1,7 +1,8 @@
-from apps.models.base import CreatedBaseModel, UUIDBaseModel
 from django.db.models import CASCADE, BigIntegerField, CharField, ForeignKey, IntegerField
 from django.db.models.enums import TextChoices
 from django.utils.translation import gettext_lazy as _
+
+from apps.models.base import CreatedBaseModel, UUIDBaseModel
 
 
 class Order(UUIDBaseModel, CreatedBaseModel):

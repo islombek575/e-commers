@@ -29,15 +29,12 @@ class SlugBaseModel(Model):
 
     def save(self, *args, **kwargs):
         creating = self._state.adding
+        base_slug = slugify(self.name)
         if creating:
             super().save(*args, **kwargs)
-
-            base_slug = slugify(self.name)
             self.slug = f"{base_slug}-{self.id}"
-
             super().save(update_fields=['slug'])
         else:
-            base_slug = slugify(self.name)
             self.slug = f"{base_slug}-{self.id}"
             super().save(*args, **kwargs)
 
