@@ -1,3 +1,5 @@
+from apps.models.base import CreatedBaseModel, SlugBaseModel
+from django.db import models
 from django.db.models import (
     CASCADE,
     SET_NULL,
@@ -11,18 +13,25 @@ from django.db.models.fields import DateField, IntegerField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from drf_spectacular.utils import extend_schema_field
+from mptt.models import MPTTModel, TreeForeignKey
 from rest_framework import serializers
 
-from apps.models.base import CreatedBaseModel, SlugBaseModel
 
+class Category(MPTTModel, SlugBaseModel):
+    name = models.CharField(_('Name'), max_length=255)
+    icon = ImageField(_('Icon'), upload_to='categories/icon/', blank=True, null=True)
+    parent = TreeForeignKey('self', SET_NULL, null=True, blank=True, related_name='sub_categories',
+                            verbose_name=_('Parent Category'))
 
-class Category(SlugBaseModel):
-    icon = ImageField(_('Icon'), upload_to='categories/icon/')
-    parent = ForeignKey('self', SET_NULL, null=True, blank=True, related_name='sub_categories')
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
     class Meta:
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
+
+    def __str__(self):
+        return self.name
 
 
 class Product(SlugBaseModel, CreatedBaseModel):

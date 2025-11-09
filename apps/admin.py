@@ -1,8 +1,9 @@
-from apps.models import Category, Like, Order, ProductImage
+from apps.models import Like, Order, ProductImage
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from mptt.admin import DraggableMPTTAdmin
 
-from .models import Product, User
+from .models import Category, Product, User
 from .models.products import Comment, ProductVersion
 
 
@@ -50,6 +51,13 @@ class OrderModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer', 'total_price', 'payment_method', 'status', 'created_at']
 
 
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(DraggableMPTTAdmin):
+    list_display = ('id', 'name', 'parent')
+    list_display_links = ('id',)
+    mptt_level_indent = 20
+    search_fields = ('name',)
+
+
 admin.site.register(Like)
 admin.site.register(Comment)

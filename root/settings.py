@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps',
     'django_filters',
+    'mptt',
     'drf_spectacular',
     'django_admin_json_editor',
     'rest_framework_simplejwt',

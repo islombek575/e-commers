@@ -7,7 +7,6 @@ class ProductPriceFilter(django_filters.FilterSet):
     price_min = django_filters.NumberFilter(method='filter_by_price_min', label="Minimal narx")
     price_max = django_filters.NumberFilter(method='filter_by_price_max', label="Maksimal narx")
 
-
     shop_id = django_filters.NumberFilter(
         field_name='shop__id',
         lookup_expr='exact',

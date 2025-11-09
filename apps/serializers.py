@@ -3,13 +3,18 @@ from typing import Any
 
 from django.contrib.auth import authenticate
 from drf_spectacular.utils import extend_schema_field
-from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-from rest_framework.fields import CharField
-from rest_framework.serializers import Serializer
+from rest_framework.fields import (
+    CharField,
+    DictField,
+    IntegerField,
+    ListField,
+    SerializerMethodField,
+)
+from rest_framework.serializers import ModelSerializer, Serializer
 from rest_framework_simplejwt.tokens import RefreshToken, Token
 
-from .models import Category, Like, Product, ProductImage, User
+from .models import Cart, Category, Like, Product, ProductImage, User
 from .models.products import Comment, ProductVersion
 
 
@@ -32,9 +37,9 @@ class SendSmsCodeSerializer(Serializer):
         return super().validate(attrs)
 
 
-class VerifySmsCodeSerializer(serializers.Serializer):
-    phone = serializers.CharField(default='901001010')
-    code = serializers.IntegerField(default=100100)
+class VerifySmsCodeSerializer(Serializer):
+    phone = CharField(default='901001010')
+    code = IntegerField(default=100100)
     token_class = RefreshToken
 
     def validate_phone(self, value):
@@ -92,33 +97,33 @@ class VerifySmsCodeSerializer(serializers.Serializer):
         return cls.token_class.for_user(user)
 
 
-class UserModelSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=False)
+class UserModelSerializer(ModelSerializer):
+    password = CharField(write_only=True, required=False)
 
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'phone', 'address', 'password']
 
 
-class CommentModelSerializer(serializers.ModelSerializer):
+class CommentModelSerializer(ModelSerializer):
     class Meta:
         model = Comment
         fields = ['id', 'user', 'rate']
 
 
-class ProductImageModelSerializer(serializers.ModelSerializer):
+class ProductImageModelSerializer(ModelSerializer):
     class Meta:
         model = ProductImage
         fields = ['id', 'image']
 
 
-class ProductVersionModelSerializer(serializers.ModelSerializer):
+class ProductVersionModelSerializer(ModelSerializer):
     class Meta:
         model = ProductVersion
         fields = '__all__'
 
 
-class ProductListModelSerializer(serializers.ModelSerializer):
+class ProductListModelSerializer(ModelSerializer):
     images = ProductImageModelSerializer(many=True, read_only=True)
 
     class Meta:
@@ -126,7 +131,7 @@ class ProductListModelSerializer(serializers.ModelSerializer):
         fields = ['id', 'category', 'slug', 'name', 'images', 'price']
 
 
-class ProductDetailModelSerializer(serializers.ModelSerializer):
+class ProductDetailModelSerializer(ModelSerializer):
     images = ProductImageModelSerializer(many=True, read_only=True)
     product_versions = ProductVersionModelSerializer(many=True, read_only=True)
 
@@ -135,24 +140,26 @@ class ProductDetailModelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CategoryModelSerializer(serializers.ModelSerializer):
-    sub_categories = serializers.SerializerMethodField()
+class CategoryModelSerializer(ModelSerializer):
+    sub_categories = SerializerMethodField()
 
     class Meta:
         model = Category
         fields = ['id', 'slug', 'icon', 'sub_categories']
 
-    @extend_schema_field(serializers.ListField(child=serializers.DictField()))
+    @extend_schema_field(ListField(child=DictField()))
     def get_sub_categories(self, obj):
         sub_cats = obj.sub_categories.all()
         serializer = CategoryModelSerializer(sub_cats, many=True, context=self.context)
         return serializer.data
 
 
-class LikeSerializer(serializers.ModelSerializer):
-    user = UserModelSerializer(read_only=True)
-    product = ProductListModelSerializer(read_only=True)
-
+class LikeSerializer(ModelSerializer):
     class Meta:
         model = Like
         fields = ['id', 'user', 'product']
+
+class CartModelSerializer(ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = '__all__'

@@ -1,18 +1,31 @@
 import re
 
+from apps.models.base import CreatedBaseModel
+from apps.models.managers import UserManager
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CASCADE, BooleanField, ForeignKey, ImageField, OneToOneField
+from django.db.models import (
+    CASCADE,
+    BooleanField,
+    ForeignKey,
+    ImageField,
+    OneToOneField,
+    TextChoices,
+)
 from django.db.models.fields import CharField
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 from jsonschema.exceptions import ValidationError
 
-from apps.models.base import CreatedBaseModel
-from apps.models.managers import UserManager
-
 
 class User(AbstractUser):
+    class Role(TextChoices):
+        admin = 'admin'
+        moderator = 'moderator'
+        merchant = 'merchant'
+        client = 'client'
+
     address = CharField(_('Location'), max_length=100, null=True, blank=True)
+    role = CharField(_('Role'), max_length=100, choices=Role.choices, default=Role.client)
     phone = CharField(_('Phone Number'), max_length=15, unique=True)
     username = None
     objects = UserManager()
@@ -53,12 +66,13 @@ class User(AbstractUser):
 
 
 class Merchant(CreatedBaseModel):
-    user = OneToOneField('apps.User', CASCADE, related_name='merchant_profile', verbose_name=_('Foydalanuvchi'))
-    company_name = CharField(_('Kompaniya nomi'), max_length=150)
+    user = OneToOneField('apps.User', CASCADE, limit_choices_to={'role': 'merchant'}, related_name='merchant_profile',
+                         verbose_name=_('User'))
+    company_name = CharField(_('Company Name'), max_length=150)
     tin = CharField(_('STIR / INN'), max_length=15, unique=True)
     logo = ImageField(_('Logo'), upload_to='merchant/logos/', null=True, blank=True)
-    description = CKEditor5Field(_('Tavsif'), null=True, blank=True)
-    is_verified = BooleanField(_('Tasdiqlanganmi?'), default=False)
+    description = CKEditor5Field(_('Description'), null=True, blank=True)
+    is_verified = BooleanField(_('Is Verified ?'), default=False)
 
     def __str__(self):
         return self.company_name

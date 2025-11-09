@@ -12,6 +12,7 @@ from apps.serializers import (
 )
 from apps.utils import check_sms_code, random_code, send_sms_code
 from django.db.models import Min
+from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
@@ -36,10 +37,10 @@ class SendCodeAPIView(APIView):
         valid, _ttl = send_sms_code(phone, code)
 
         if valid:
-            return Response({"detail": "SMS yuborildi!"})
+            return Response({"detail": _("SMS code sent !")})
 
         return Response(
-            {"detail": f"Yana {int(_ttl)} soniyadan keyin yuborishingiz mumkin."},
+            {"detail": _(f"You can send again in {int(_ttl)} seconds.")},
             status=status.HTTP_429_TOO_MANY_REQUESTS
         )
 
@@ -95,6 +96,13 @@ class LikeCreateView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user, product_id=self.kwargs['product_id'])
+
+class WishList(ListAPIView):
+    serializer_class = LikeSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Like.objects.filter(user=self.request.user)
 
 
 class CommentCreateView(CreateAPIView):

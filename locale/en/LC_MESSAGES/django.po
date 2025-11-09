@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-04 12:03+0500\n"
+"POT-Creation-Date: 2025-11-09 14:39+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,178 +22,214 @@ msgstr ""
 msgid "Created_at"
 msgstr ""
 
-#: apps/models/base.py:25 apps/models/users.py:44
+#: apps/models/base.py:25 apps/models/products.py:21 apps/models/users.py:83
 msgid "Name"
 msgstr ""
 
-#: apps/models/carts.py:17 apps/models/orders.py:41
+#: apps/models/carts.py:16 apps/models/orders.py:39
 msgid "Quantity"
 msgstr ""
 
-#: apps/models/carts.py:18
+#: apps/models/carts.py:17
 msgid "Price at Addition"
 msgstr ""
 
-#: apps/models/orders.py:11
+#: apps/models/orders.py:9
 msgid "Pending Confirmation"
 msgstr ""
 
-#: apps/models/orders.py:12
+#: apps/models/orders.py:10
 msgid "Processing"
 msgstr ""
 
-#: apps/models/orders.py:13
+#: apps/models/orders.py:11
 msgid "On the way"
 msgstr ""
 
-#: apps/models/orders.py:14
+#: apps/models/orders.py:12
 msgid "Delivered"
 msgstr ""
 
-#: apps/models/orders.py:15
+#: apps/models/orders.py:13
 msgid "Completed"
 msgstr ""
 
-#: apps/models/orders.py:16
+#: apps/models/orders.py:14
 msgid "Canceled"
 msgstr ""
 
-#: apps/models/orders.py:17
+#: apps/models/orders.py:15
 msgid "Returned"
 msgstr ""
 
-#: apps/models/orders.py:20
+#: apps/models/orders.py:18
 msgid "Card Online"
 msgstr ""
 
-#: apps/models/orders.py:21
+#: apps/models/orders.py:19
 msgid "Cash on Delivery"
 msgstr ""
 
-#: apps/models/orders.py:22
+#: apps/models/orders.py:20
 msgid "Installment Plan"
 msgstr ""
 
-#: apps/models/orders.py:25
+#: apps/models/orders.py:23
 msgid "Order Status"
 msgstr ""
 
-#: apps/models/orders.py:26
+#: apps/models/orders.py:24
 msgid "Total Price"
 msgstr ""
 
-#: apps/models/orders.py:27
+#: apps/models/orders.py:25
 msgid "Payment Method"
 msgstr ""
 
-#: apps/models/orders.py:28
+#: apps/models/orders.py:26
 msgid "Delivery Address"
 msgstr ""
 
-#: apps/models/orders.py:31
+#: apps/models/orders.py:29
 msgid "order"
 msgstr ""
 
-#: apps/models/orders.py:32
+#: apps/models/orders.py:30
 msgid "orders"
 msgstr ""
 
-#: apps/models/orders.py:42
+#: apps/models/orders.py:40
 msgid "Price at Purchase"
 msgstr ""
 
-#: apps/models/orders.py:49
+#: apps/models/orders.py:47
 msgid "order item"
 msgstr ""
 
-#: apps/models/orders.py:50
+#: apps/models/orders.py:48
 msgid "order items"
 msgstr ""
 
-#: apps/models/products.py:12
+#: apps/models/products.py:22
 msgid "Icon"
 msgstr ""
 
-#: apps/models/products.py:16
-msgid "category"
+#: apps/models/products.py:24
+msgid "Parent Category"
 msgstr ""
 
-#: apps/models/products.py:17
-msgid "categories.json"
+#: apps/models/products.py:30
+msgid "Category"
 msgstr ""
 
-#: apps/models/products.py:22 apps/models/users.py:47
+#: apps/models/products.py:31
+msgid "Categories"
+msgstr ""
+
+#: apps/models/products.py:39 apps/models/users.py:74 apps/models/users.py:86
 msgid "Description"
 msgstr ""
 
-#: apps/models/products.py:23
+#: apps/models/products.py:40
 msgid "Delivery date"
 msgstr ""
 
-#: apps/models/products.py:26
+#: apps/models/products.py:48
 msgid "product"
 msgstr ""
 
-#: apps/models/products.py:27
+#: apps/models/products.py:49
 msgid "products"
 msgstr ""
 
-#: apps/models/products.py:32
+#: apps/models/products.py:62
 msgid "Price"
 msgstr ""
 
-#: apps/models/products.py:33
+#: apps/models/products.py:63
 msgid "Discount"
 msgstr ""
 
-#: apps/models/products.py:34
+#: apps/models/products.py:64
 msgid "Attributes"
 msgstr ""
 
-#: apps/models/products.py:37
+#: apps/models/products.py:67
 msgid "product version"
 msgstr ""
 
-#: apps/models/products.py:38
+#: apps/models/products.py:68
 msgid "product versions"
 msgstr ""
 
-#: apps/models/products.py:50 apps/models/products.py:63
+#: apps/models/products.py:79 apps/models/products.py:92
 msgid "Image"
 msgstr ""
 
-#: apps/models/products.py:56
+#: apps/models/products.py:85
 msgid "product image"
 msgstr ""
 
-#: apps/models/products.py:57
+#: apps/models/products.py:86
 msgid "product images"
 msgstr ""
 
-#: apps/models/products.py:62
+#: apps/models/products.py:91
 msgid "Rate"
 msgstr ""
 
-#: apps/models/users.py:15
+#: apps/models/users.py:27
 msgid "Location"
 msgstr ""
 
-#: apps/models/users.py:16
+#: apps/models/users.py:28
+msgid "Role"
+msgstr ""
+
+#: apps/models/users.py:29
 msgid "Phone Number"
 msgstr ""
 
-#: apps/models/users.py:24
+#: apps/models/users.py:37
 msgid "user"
 msgstr ""
 
-#: apps/models/users.py:25
+#: apps/models/users.py:38
 msgid "users"
 msgstr ""
 
-#: apps/models/users.py:45
+#: apps/models/users.py:70
+msgid "User"
+msgstr ""
+
+#: apps/models/users.py:71
+msgid "Company Name"
+msgstr ""
+
+#: apps/models/users.py:72
+msgid "STIR / INN"
+msgstr ""
+
+#: apps/models/users.py:73 apps/models/users.py:85
+msgid "Logo"
+msgstr ""
+
+#: apps/models/users.py:75
+msgid "Is Verified ?"
+msgstr ""
+
+#: apps/models/users.py:82
+msgid "Merchant"
+msgstr ""
+
+#: apps/models/users.py:84
 msgid "Banner"
 msgstr ""
 
-#: apps/models/users.py:46
-msgid "Logo"
+#: apps/views.py:41
+msgid "SMS code sent !"
+msgstr ""
+
+#: apps/views.py:44
+msgid "You can send again in {int(_ttl)} seconds."
 msgstr ""

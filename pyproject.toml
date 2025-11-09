@@ -21,6 +21,7 @@ dependencies = [
     "booktype>=1.5",
     "redis>=5.0.1",
     "django-filter>=25.2",
+    "django-mptt>=0.18.0",
 ]
 
 [tool.isort]
