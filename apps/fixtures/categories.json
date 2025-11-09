@@ -1,0 +1,114 @@
+[
+{
+  "model": "apps.category",
+  "pk": 1,
+  "fields": {
+    "slug": "texnika-1",
+    "name": "Texnika",
+    "icon": "",
+    "parent": null,
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 2,
+    "level": 0
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 2,
+  "fields": {
+    "slug": "smartfonlar-2",
+    "name": "Smartfonlar",
+    "icon": "",
+    "parent": 1,
+    "lft": 4,
+    "rght": 7,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 3,
+  "fields": {
+    "slug": "noutbuklar-3",
+    "name": "Noutbuklar",
+    "icon": "",
+    "parent": 1,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 4,
+  "fields": {
+    "slug": "iphone-4",
+    "name": "Iphone",
+    "icon": "",
+    "parent": 2,
+    "lft": 5,
+    "rght": 6,
+    "tree_id": 2,
+    "level": 2
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 5,
+  "fields": {
+    "slug": "kiyim-kechak-5",
+    "name": "Kiyim-Kechak",
+    "icon": "",
+    "parent": null,
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 1,
+    "level": 0
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 6,
+  "fields": {
+    "slug": "t-shirt-6",
+    "name": "T-Shirt",
+    "icon": "",
+    "parent": 5,
+    "lft": 4,
+    "rght": 7,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 7,
+  "fields": {
+    "slug": "nike-7",
+    "name": "Nike",
+    "icon": "",
+    "parent": 6,
+    "lft": 5,
+    "rght": 6,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 8,
+  "fields": {
+    "slug": "oyoq-kiyimlar-8",
+    "name": "Oyoq Kiyimlar",
+    "icon": "",
+    "parent": 5,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 1,
+    "level": 1
+  }
+}
+]
