@@ -1,5 +1,3 @@
-from rest_framework.exceptions import NotAuthenticated
-
 from apps.filters import ProductPriceFilter
 from apps.models import Category, Comment, Like, Product
 from apps.paginations import CustomProductPagination
@@ -17,6 +15,7 @@ from django.db.models import Min
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
+from rest_framework.exceptions import NotAuthenticated
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -99,6 +98,7 @@ class LikeCreateView(CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user, product_id=self.kwargs['product_id'])
 
+
 class WishList(ListAPIView):
     serializer_class = LikeSerializer
     permission_classes = [IsAuthenticated]
@@ -117,4 +117,3 @@ class CommentCreateView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user, product_id=self.kwargs['product_id'])
-

@@ -14,7 +14,7 @@ from rest_framework.fields import (
 from rest_framework.serializers import ModelSerializer, Serializer
 from rest_framework_simplejwt.tokens import RefreshToken, Token
 
-from .models import Cart, Category, Like, Product, ProductImage, User, CartItem
+from .models import Cart, CartItem, Category, Like, Product, ProductImage, User
 from .models.products import Comment, ProductVersion
 
 

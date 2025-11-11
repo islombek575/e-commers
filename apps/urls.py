@@ -1,5 +1,3 @@
-from django.urls import path
-
 from apps.views import (
     CategoryListView,
     LikeCreateView,
@@ -9,6 +7,7 @@ from apps.views import (
     SendCodeAPIView,
     WishList,
 )
+from django.urls import path
 
 urlpatterns = [
     path('auth/send-code/', SendCodeAPIView.as_view(), name='token_obtain_pair'),
