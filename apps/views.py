@@ -117,3 +117,4 @@ class CommentCreateView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user, product_id=self.kwargs['product_id'])
+

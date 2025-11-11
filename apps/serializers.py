@@ -14,7 +14,7 @@ from rest_framework.fields import (
 from rest_framework.serializers import ModelSerializer, Serializer
 from rest_framework_simplejwt.tokens import RefreshToken, Token
 
-from .models import Cart, Category, Like, Product, ProductImage, User
+from .models import Cart, Category, Like, Product, ProductImage, User, CartItem
 from .models.products import Comment, ProductVersion
 
 
@@ -162,4 +162,9 @@ class LikeSerializer(ModelSerializer):
 class CartModelSerializer(ModelSerializer):
     class Meta:
         model = Cart
+        fields = '__all__'
+
+class CartItemModelSerializer(ModelSerializer):
+    class Meta:
+        model = CartItem
         fields = '__all__'
