@@ -1,3 +1,5 @@
+from rest_framework.exceptions import NotAuthenticated
+
 from apps.filters import ProductPriceFilter
 from apps.models import Category, Comment, Like, Product
 from apps.paginations import CustomProductPagination
@@ -73,14 +75,14 @@ class ProductListView(ListAPIView):
 
     filterset_class = ProductPriceFilter
 
-    search_fields = ['name', 'slug', 'description', 'category__name', 'shop__name']
+    search_fields = ['name', 'slug', 'description', 'category__name']
 
     ordering_fields = ['name', 'price', 'created_at']
     ordering = ['-created_at']
 
     def get_queryset(self):
         return super().get_queryset().annotate(
-            price=Min('product_versions__price')
+            min_price=Min('product_versions__price')
         )
 
 
@@ -102,7 +104,10 @@ class WishList(ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Like.objects.filter(user=self.request.user)
+        user = self.request.user
+        if user.is_anonymous:
+            raise NotAuthenticated(_("You are not authenticated"))
+        return Like.objects.filter(user=user)
 
 
 class CommentCreateView(CreateAPIView):

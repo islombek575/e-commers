@@ -24,10 +24,4 @@ https://uzum.uz/uz/shop/justcases
 
 
 
-
-
-
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYyNjg2MDE2LCJpYXQiOjE3NjI2ODU3MTYsImp0aSI6IjEzMWQ2ZDU0MDUwOTRiZDNiYTcwMTA1YjllZGVlNDM4IiwidXNlcl9pZCI6IjEifQ.hFxICwWiJE_CKMyGcMZ0kyKHZL4BHaSXOi_EL-IJAGc
-
 python manage.py dumpdata apps.Category --indent 2 > apps/fixtures/categories.json
