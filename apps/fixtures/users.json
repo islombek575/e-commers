@@ -1,87 +1,262 @@
 [
-  {
-    "model": "apps.user",
-    "pk": "2",
-    "fields": {
-      "password": "pbkdf2_sha256$600000$zVvK6BwFzSgE$Qx1p7L4x7U8Vq6P1y6W4X5T3S2R1A0B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6",
-      "last_login": null,
-      "is_superuser": true,
-      "phone": "901234567",
-      "first_name": "Admin",
-      "last_name": "User",
-      "email": "admin@example.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2025-01-01T10:00:00Z",
-      "address": "Tashkent, Uzbekistan"
-    }
-  },
-  {
-    "model": "apps.user",
-    "pk": "3",
-    "fields": {
-      "password": "pbkdf2_sha256$600000$aBcDeFgHiJkL$mNoPqRsTuVwXyZ0aBcDeFgHiJkL3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7",
-      "last_login": null,
-      "is_superuser": false,
-      "phone": "998765432",
-      "first_name": "Ali",
-      "last_name": "Valiyev",
-      "email": "ali@example.com",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2025-01-05T11:30:00Z",
-      "address": "Samarkand, Uzbekistan"
-    }
-  },
-  {
-    "model": "apps.user",
-    "pk": "4",
-    "fields": {
-      "password": "pbkdf2_sha256$600000$bFkO8PzLqMnG$xYxXwVwUuTtSsRrQqPpOoNnMmLlKkJjIiHhGgFfEeDdCcBbAaZzYyXxWwVvUuT",
-      "last_login": null,
-      "is_superuser": false,
-      "phone": "975432109",
-      "first_name": "Nigina",
-      "last_name": "Karimova",
-      "email": "nigina@example.com",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2025-01-10T14:45:00Z",
-      "address": "Bukhara, Uzbekistan"
-    }
-  },
-  {
-    "model": "apps.user",
-    "pk": "5",
-    "fields": {
-      "password": "pbkdf2_sha256$600000$yXzWvUvTsRqPpO$qRrSsTtUuVvWwXxYyZz0A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V",
-      "last_login": null,
-      "is_superuser": false,
-      "phone": "931112233",
-      "first_name": "Javohir",
-      "last_name": "Sobirov",
-      "email": "javohir@example.com",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2025-01-15T09:15:00Z",
-      "address": "Andijan, Uzbekistan"
-    }
-  },
-  {
-    "model": "apps.user",
-    "pk": "6",
-    "fields": {
-      "password": "pbkdf2_sha256$600000$zZzYyXxWwVvUuT$sRrQqPpOoNnMmLlKkJjIiHhGgFfEeDdCcBbAaZzYyXxWwVvUuTtSsRrQqPpO",
-      "last_login": null,
-      "is_superuser": false,
-      "phone": "945556677",
-      "first_name": "Madina",
-      "last_name": "Tursunova",
-      "email": "madina@example.com",
-      "is_staff": false,
-      "is_active": false,
-      "date_joined": "2025-01-20T16:00:00Z",
-      "address": "Fergana, Uzbekistan"
-    }
+{
+  "model": "apps.user",
+  "pk": 1,
+  "fields": {
+    "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$VTVDcDF6bzRNeHd2NkgxVlh6RnhhUA$oO/mJ+Er7qg9Qy56fDSwhuvMRl+kzgqGQFoi0WJ3DDU",
+    "last_login": "2025-11-13T04:51:25.060Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-13T04:49:57.047Z",
+    "address": null,
+    "role": "client",
+    "phone": "901001010",
+    "groups": [],
+    "user_permissions": []
   }
+},
+{
+  "model": "apps.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zVvK6BwFzSgE$Qx1p7L4x7U8Vq6P1y6W4X5T3S2R1A0B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6",
+    "last_login": null,
+    "is_superuser": true,
+    "first_name": "Admin",
+    "last_name": "User",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-01-01T10:00:00Z",
+    "address": "Tashkent, Uzbekistan",
+    "role": "client",
+    "phone": "901234567",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$aBcDeFgHiJkL$mNoPqRsTuVwXyZ0aBcDeFgHiJkL3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Ali",
+    "last_name": "Valiyev",
+    "email": "ali@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-01-05T11:30:00Z",
+    "address": "Samarkand, Uzbekistan",
+    "role": "client",
+    "phone": "998765432",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$bFkO8PzLqMnG$xYxXwVwUuTtSsRrQqPpOoNnMmLlKkJjIiHhGgFfEeDdCcBbAaZzYyXxWwVvUuT",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Nigina",
+    "last_name": "Karimova",
+    "email": "nigina@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-01-10T14:45:00Z",
+    "address": "Bukhara, Uzbekistan",
+    "role": "client",
+    "phone": "975432109",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$yXzWvUvTsRqPpO$qRrSsTtUuVvWwXxYyZz0A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Javohir",
+    "last_name": "Sobirov",
+    "email": "javohir@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-01-15T09:15:00Z",
+    "address": "Andijan, Uzbekistan",
+    "role": "client",
+    "phone": "941112233",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zZzYyXxWwVvUuT$sRrQqPpOoNnMmLlKkJjIiHhGgFfEeDdCcBbAaZzYyXxWwVvUuTtSsRrQqPpO",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Madina",
+    "last_name": "Tursunova",
+    "email": "madina@example.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2025-01-20T16:00:00Z",
+    "address": "Fergana, Uzbekistan",
+    "role": "client",
+    "phone": "945556677",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 7,
+  "fields": {
+    "password": "1",
+    "last_login": "2025-11-12T09:00:00Z",
+    "is_superuser": true,
+    "first_name": "Ali",
+    "last_name": "Valiyev",
+    "email": "ali.valiyev@admin.uz",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-15T10:00:00Z",
+    "address": "Toshkent sh., Mirzo Ulug'bek tumani, A.Qodiriy ko'chasi 5-uy",
+    "role": "admin",
+    "phone": "901234577",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 8,
+  "fields": {
+    "password": "1",
+    "last_login": "2025-11-11T14:30:00Z",
+    "is_superuser": false,
+    "first_name": "Aziz",
+    "last_name": "Karimov",
+    "email": "aziz.moderator@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-03-20T11:05:00Z",
+    "address": "Samarqand sh., Registon ko'chasi, 12-uy, 3-ofis",
+    "role": "moderator",
+    "phone": "919876543",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 9,
+  "fields": {
+    "password": "1",
+    "last_login": "2025-11-10T18:45:00Z",
+    "is_superuser": false,
+    "first_name": "Shirin",
+    "last_name": "Akbarova",
+    "email": "shirin.akbarova@market.uz",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-10T15:20:00Z",
+    "address": "Buxoro sh., Labi Hovuz, Savdo Markazi, 1-do'kon",
+    "role": "merchant.json",
+    "phone": "931112233",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 10,
+  "fields": {
+    "password": "1",
+    "last_login": "2025-11-13T09:10:00Z",
+    "is_superuser": false,
+    "first_name": "Diyor",
+    "last_name": "Umarov",
+    "email": "diyor.client@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T20:00:00Z",
+    "address": null,
+    "role": "merchant.json",
+    "phone": "945554433",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 11,
+  "fields": {
+    "password": "1",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Laylo",
+    "last_name": "Tursunova",
+    "email": "laylo.tursunova@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-02-14T08:00:00Z",
+    "address": "Farg'ona sh., Mustaqillik ko'chasi, 2-uy",
+    "role": "client",
+    "phone": "957778899",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 12,
+  "fields": {
+    "password": "1",
+    "last_login": "2025-09-01T10:00:00Z",
+    "is_superuser": false,
+    "first_name": "Bobur",
+    "last_name": "Rizayev",
+    "email": "bobur.rizayev@yandex.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2023-11-25T17:00:00Z",
+    "address": "Qarshi sh., Islom Karimov ko'chasi, 45-kvartira",
+    "role": "client",
+    "phone": "990001122",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "apps.user",
+  "pk": 13,
+  "fields": {
+    "password": "1",
+    "last_login": "2025-11-13T08:30:00Z",
+    "is_superuser": false,
+    "first_name": "Fotima",
+    "last_name": "Qosimov",
+    "email": "fotima.qosimova@biz.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-06-01T12:00:00Z",
+    "address": "Namangan sh., Chorsu bozori, 10-do'kon",
+    "role": "merchant.json",
+    "phone": "986665544",
+    "groups": [],
+    "user_permissions": []
+  }
+}
 ]

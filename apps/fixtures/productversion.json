@@ -1,62 +1,338 @@
 [
   {
-    "model": "apps.productversion",
-    "pk": "1",
+    "model": "apps.ProductVersion",
+    "pk": 1,
     "fields": {
-      "product": "1",
-      "name": "256GB, Yashil",
-      "slug": "256gb-yashil",
+      "name": "S25 128GB (Qora)",
+      "product": 1,
+      "slug": "s25-128gb-qora",
       "price": 12000000,
-      "discount": 5,
-      "attributes": {"color": "Green", "storage": "256GB"}
+      "discount": 10,
+      "attributes": {
+        "rang": "Qora",
+        "xotira": "128GB",
+        "RAM": "8GB"
+      }
     }
   },
   {
-    "model": "apps.productversion",
-    "pk": "2",
+    "model": "apps.ProductVersion",
+    "pk": 2,
     "fields": {
-      "product": "2",
-      "name": "512GB, Qora",
-      "slug": "512gb-qora",
+      "name": "S25 256GB (Oq)",
+      "product": 1,
+      "slug": "s25-256gb-oq",
       "price": 13500000,
       "discount": 0,
-      "attributes": {"color": "Black", "storage": "512GB"}
+      "attributes": {
+        "rang": "Oq",
+        "xotira": "256GB",
+        "RAM": "12GB"
+      }
     }
   },
   {
-    "model": "apps.productversion",
-    "pk": "3",
+    "model": "apps.ProductVersion",
+    "pk": 3,
     "fields": {
-      "product": "3",
-      "name": "8GB/256GB, Kumush",
-      "slug": "8gb-256gb-kumush",
+      "name": "S25 512GB (Yashil)",
+      "product": 1,
+      "slug": "s25-512gb-yashil",
       "price": 15000000,
+      "discount": 5,
+      "attributes": {
+        "rang": "Yashil",
+        "xotira": "512GB",
+        "RAM": "12GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 4,
+    "fields": {
+      "name": "MB Pro M3 14-inch (512GB)",
+      "product": 2,
+      "slug": "macbook-pro-m3-14-512",
+      "price": 25000000,
+      "discount": 5,
+      "attributes": {
+        "ekran": "14 dyuym",
+        "protsessor": "Apple M3 Pro",
+        "SSD": "512GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 5,
+    "fields": {
+      "name": "MB Pro M3 16-inch (1TB)",
+      "product": 2,
+      "slug": "macbook-pro-m3-16-1tb",
+      "price": 35000000,
       "discount": 10,
-      "attributes": {"RAM": "8GB", "SSD": "256GB"}
+      "attributes": {
+        "ekran": "16 dyuym",
+        "protsessor": "Apple M3 Max",
+        "SSD": "1TB"
+      }
     }
   },
   {
-    "model": "apps.productversion",
-    "pk": "4",
+    "model": "apps.ProductVersion",
+    "pk": 6,
     "fields": {
-      "product": "4",
-      "name": "Katta (L), Oq",
-      "slug": "katta-l-oq",
-      "price": 150000,
+      "name": "MB Pro M3 14-inch (1TB)",
+      "product": 2,
+      "slug": "macbook-pro-m3-14-1tb",
+      "price": 29000000,
       "discount": 0,
-      "attributes": {"size": "L", "color": "White"}
+      "attributes": {
+        "ekran": "14 dyuym",
+        "protsessor": "Apple M3 Pro",
+        "SSD": "1TB"
+      }
     }
   },
   {
-    "model": "apps.productversion",
-    "pk": "5",
+    "model": "apps.ProductVersion",
+    "pk": 7,
     "fields": {
-      "product": "2",
-      "name": "RTX 3060, 16GB RAM",
-      "slug": "rtx-3060-16gb-ram",
-      "price": 20000000,
+      "name": "Kurtka L (Kulrang)",
+      "product": 3,
+      "slug": "kurtka-l-kulrang",
+      "price": 850000,
       "discount": 0,
-      "attributes": {"GPU": "RTX 3060", "RAM": "16GB"}
+      "attributes": {
+        "o'lcham": "L",
+        "rang": "Kulrang",
+        "material": "Gore-Tex"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 8,
+    "fields": {
+      "name": "Kurtka XL (Qora)",
+      "product": 3,
+      "slug": "kurtka-xl-qora",
+      "price": 950000,
+      "discount": 15,
+      "attributes": {
+        "o'lcham": "XL",
+        "rang": "Qora",
+        "material": "Waterproof"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 9,
+    "fields": {
+      "name": "Kurtka XXL (Yashil)",
+      "product": 3,
+      "slug": "kurtka-xxl-yashil",
+      "price": 1000000,
+      "discount": 0,
+      "attributes": {
+        "o'lcham": "XXL",
+        "rang": "Yashil",
+        "material": "Gore-Tex"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 10,
+    "fields": {
+      "name": "Muzlatkich 400L (Oq)",
+      "product": 4,
+      "slug": "muzlatkich-400l-oq",
+      "price": 6000000,
+      "discount": 0,
+      "attributes": {
+        "hajm": "400 L",
+        "rang": "Oq",
+        "energiya_klass": "A+"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 11,
+    "fields": {
+      "name": "Muzlatkich 500L (Metallik)",
+      "product": 4,
+      "slug": "muzlatkich-500l-metallik",
+      "price": 7000000,
+      "discount": 15,
+      "attributes": {
+        "hajm": "500 L",
+        "rang": "Metallik",
+        "energiya_klass": "A++"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 12,
+    "fields": {
+      "name": "Muzlatkich 650L (Qora)",
+      "product": 4,
+      "slug": "muzlatkich-650l-qora",
+      "price": 9500000,
+      "discount": 10,
+      "attributes": {
+        "hajm": "650 L",
+        "rang": "Qora",
+        "energiya_klass": "A+++"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 13,
+    "fields": {
+      "name": "Smart Watch 41mm (Qora)",
+      "product": 5,
+      "slug": "smart-watch-41mm-qora",
+      "price": 3200000,
+      "discount": 0,
+      "attributes": {
+        "o'lcham": "41mm",
+        "rang": "Qora",
+        "korpus": "Alyuminiy"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 14,
+    "fields": {
+      "name": "Smart Watch 45mm (Kumush)",
+      "product": 5,
+      "slug": "smart-watch-45mm-kumush",
+      "price": 3800000,
+      "discount": 8,
+      "attributes": {
+        "o'lcham": "45mm",
+        "rang": "Kumush",
+        "korpus": "Titan"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 15,
+    "fields": {
+      "name": "Smart Watch 49mm (Ultro)",
+      "product": 5,
+      "slug": "smart-watch-49mm-ultra",
+      "price": 5000000,
+      "discount": 0,
+      "attributes": {
+        "o'lcham": "49mm",
+        "rang": "Oranj",
+        "korpus": "Titan"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 16,
+    "fields": {
+      "name": "Xiaomi 15P 256GB (Yashil)",
+      "product": 6,
+      "slug": "xiaomi-15p-256gb-yashil",
+      "price": 9000000,
+      "discount": 0,
+      "attributes": {
+        "rang": "Yashil",
+        "xotira": "256GB",
+        "RAM": "12GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 17,
+    "fields": {
+      "name": "Xiaomi 15P 512GB (Oq)",
+      "product": 6,
+      "slug": "xiaomi-15p-512gb-oq",
+      "price": 10500000,
+      "discount": 10,
+      "attributes": {
+        "rang": "Oq",
+        "xotira": "512GB",
+        "RAM": "16GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 18,
+    "fields": {
+      "name": "Xiaomi 15P 1TB (Qora)",
+      "product": 6,
+      "slug": "xiaomi-15p-1tb-qora",
+      "price": 12000000,
+      "discount": 5,
+      "attributes": {
+        "rang": "Qora",
+        "xotira": "1TB",
+        "RAM": "16GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 19,
+    "fields": {
+      "name": "Gaming Noutbuk (i7/16GB)",
+      "product": 7,
+      "slug": "gaming-noutbuk-i7-16gb",
+      "price": 16000000,
+      "discount": 0,
+      "attributes": {
+        "protsessor": "Intel Core i7",
+        "video_karta": "RTX 4060",
+        "RAM": "16GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 20,
+    "fields": {
+      "name": "Gaming Noutbuk (i9/32GB)",
+      "product": 7,
+      "slug": "gaming-noutbuk-i9-32gb",
+      "price": 25000000,
+      "discount": 10,
+      "attributes": {
+        "protsessor": "Intel Core i9",
+        "video_karta": "RTX 4080",
+        "RAM": "32GB"
+      }
+    }
+  },
+  {
+    "model": "apps.ProductVersion",
+    "pk": 21,
+    "fields": {
+      "name": "Gaming Noutbuk (i9/16GB)",
+      "product": 7,
+      "slug": "gaming-noutbuk-i9-16gb",
+      "price": 18500000,
+      "discount": 0,
+      "attributes": {
+        "protsessor": "Intel Core i9",
+        "video_karta": "RTX 4070",
+        "RAM": "16GB"
+      }
     }
   }
 ]

@@ -21,7 +21,7 @@ class User(AbstractUser):
     class Role(TextChoices):
         admin = 'admin'
         moderator = 'moderator'
-        merchant = 'merchant'
+        merchant = 'merchant.json'
         client = 'client'
 
     address = CharField(_('Location'), max_length=100, null=True, blank=True)
@@ -66,11 +66,11 @@ class User(AbstractUser):
 
 
 class Merchant(CreatedBaseModel):
-    user = OneToOneField('apps.User', CASCADE, limit_choices_to={'role': 'merchant'}, related_name='merchant_profile',
+    user = OneToOneField('apps.User', CASCADE, limit_choices_to={'role': 'merchant.json'}, related_name='merchant_profile',
                          verbose_name=_('User'))
     company_name = CharField(_('Company Name'), max_length=150)
     tin = CharField(_('STIR / INN'), max_length=15, unique=True)
-    logo = ImageField(_('Logo'), upload_to='merchant/logos/', null=True, blank=True)
+    logo = ImageField(_('Logo'), upload_to='merchant.json/logos/', null=True, blank=True)
     description = CKEditor5Field(_('Description'), null=True, blank=True)
     is_verified = BooleanField(_('Is Verified ?'), default=False)
 
@@ -84,3 +84,6 @@ class Shop(CreatedBaseModel):
     banner = ImageField(_('Banner'), upload_to='market/banner/')
     logo = ImageField(_('Logo'), upload_to='market/logo/')
     description = CKEditor5Field(_('Description'))
+
+    def __str__(self):
+        return self.name

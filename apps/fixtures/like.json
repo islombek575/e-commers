@@ -1,42 +1,58 @@
 [
   {
-    "model": "apps.like",
+    "model": "apps.Like",
     "pk": 1,
     "fields": {
-      "product": "2",
-      "user": "1"
+      "product": 1,
+      "user": 1
     }
   },
   {
-    "model": "apps.like",
+    "model": "apps.Like",
     "pk": 2,
     "fields": {
-      "product": "3",
-      "user": "3"
+      "product": 1,
+      "user": 2
     }
   },
   {
-    "model": "apps.like",
+    "model": "apps.Like",
     "pk": 3,
     "fields": {
-      "product": "2",
-      "user": "3"
+      "product": 2,
+      "user": 3
     }
   },
   {
-    "model": "apps.like",
+    "model": "apps.Like",
     "pk": 4,
     "fields": {
-      "product": "2",
-      "user": "4"
+      "product": 3,
+      "user": 4
     }
   },
   {
-    "model": "apps.like",
+    "model": "apps.Like",
     "pk": 5,
     "fields": {
-      "product": "1",
-      "user": "3"
+      "product": 4,
+      "user": 5
+    }
+  },
+  {
+    "model": "apps.Like",
+    "pk": 6,
+    "fields": {
+      "product": 5,
+      "user": 6
+    }
+  },
+  {
+    "model": "apps.Like",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "user": 7
     }
   }
 ]

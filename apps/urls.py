@@ -5,7 +5,7 @@ from apps.views import (
     ProductDetailView,
     ProductListView,
     SendCodeAPIView,
-    WishList,
+    WishList, CartListCreateView, CartItemListCreateView,
 )
 from django.urls import path
 
@@ -14,7 +14,9 @@ urlpatterns = [
     path('auth/verify-code/', LoginAPIView.as_view(), name='token_obtain_pair'),
     path('categories/', CategoryListView.as_view(), name='category_list'),
     path('products/', ProductListView.as_view(), name='product_list'),
-    path('WishList/', WishList.as_view(), name='wish_list'),
+    path('wishList/', WishList.as_view(), name='wish_list'),
     path('products/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
     path('products/<int:product_id>/like/', LikeCreateView.as_view(), name='like_create'),
+    path('cart/', CartListCreateView.as_view(), name='cart_create'),
+    path('cartitem/', CartItemListCreateView.as_view(), name='cart_item'),
 ]

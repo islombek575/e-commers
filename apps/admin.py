@@ -1,10 +1,10 @@
-from apps.models import Like, Order, ProductImage
+from apps.models import Like, Order, ProductImage, CartItem, Cart
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from mptt.admin import DraggableMPTTAdmin
 
 from .models import Category, Product, User
 from .models.products import Comment, ProductVersion
+from .models.users import Shop, Merchant
 
 
 class ProductImageInline(admin.TabularInline):
@@ -14,7 +14,8 @@ class ProductImageInline(admin.TabularInline):
 
 class ProductVersionInline(admin.TabularInline):
     model = ProductVersion
-    extra = 1
+    min_num = 1
+    extra = 0
 
 
 @admin.register(Product)
@@ -29,7 +30,7 @@ class ProductAdmin(admin.ModelAdmin):
 class UserModelAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('phone', 'password')}),
-        ('Personal info', {'fields': ('email', 'address',)}),
+        ('Personal info', {'fields': ('email', 'address','role')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
@@ -48,16 +49,18 @@ class UserModelAdmin(UserAdmin):
 
 @admin.register(Order)
 class OrderModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'customer', 'total_price', 'payment_method', 'status', 'created_at']
+    list_display = ['id', 'user', 'total_amount','status', 'created_at']
 
 
 @admin.register(Category)
-class CategoryAdmin(DraggableMPTTAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'parent')
     list_display_links = ('id',)
-    mptt_level_indent = 20
     search_fields = ('name',)
 
-
+admin.site.register(Shop)
+admin.site.register(Cart)
+admin.site.register(CartItem)
 admin.site.register(Like)
 admin.site.register(Comment)
+admin.site.register(Merchant)

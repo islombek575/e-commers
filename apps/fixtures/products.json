@@ -3,65 +3,91 @@
     "model": "apps.Product",
     "pk": 1,
     "fields": {
-      "name": "Samsung Galaxy S23",
-      "slug": "samsung-galaxy-s23-1",
       "category": 2,
-      "description": "Samsung Galaxy S23 smartfoni, 256GB xotira.",
-      "deliver_date": "2025-11-15",
+      "slug": "smartfon-s25",
+      "name": "Smartfon Samsung S25",
+      "description": "Smartfonning ajoyib dizayni va yuqori unumdorligi. Yangi kamera tizimi ajoyib suratlar olish imkonini beradi.",
+      "deliver_date": "2025-11-25",
       "shop": 1,
-      "created_at": "2024-06-01T10:00:00Z"
+      "created_at": "2025-11-10T10:00:00Z"
     }
   },
   {
     "model": "apps.Product",
     "pk": 2,
     "fields": {
-      "name": "LG Kir yuvish mashinasi",
-      "slug": "lg-kir-yuvish-mashinasi-2",
       "category": 3,
-      "description": "LG 8kg sig'imli, inverter dvigatelli kir yuvish mashinasi.",
-      "deliver_date": "2025-11-20",
-      "shop": 3,
-      "created_at": "2024-06-05T11:00:00Z"
+      "slug": "noutbuk-pro-2025",
+      "name": "Noutbuk MacBook Pro M3",
+      "description": "Yuqori tezlikda ishlaydigan va ixcham noutbuk. Grafik dizayn va video montaj uchun ideal.",
+      "deliver_date": null,
+      "shop": 2,
+      "created_at": "2025-11-10T10:05:00Z"
     }
   },
   {
     "model": "apps.Product",
     "pk": 3,
     "fields": {
-      "name": "Ayollar uzun ko'ylagi",
-      "slug": "ayollar-uzun-ko'ylagi-3",
       "category": 5,
-      "description": "Yangi mavsum uchun zamonaviy va yengil uzun ko'ylak.",
-      "deliver_date": "2025-11-10",
-      "shop": 2,
-      "created_at": "2024-06-10T12:00:00Z"
+      "slug": "qishki-kurtka-sport",
+      "name": "Erkaklar qishki kurtkasi",
+      "description": "Sifati yuqori, suv o'tkazmaydigan materialdan ishlangan kurtka.",
+      "deliver_date": "2025-11-18",
+      "shop": 3,
+      "created_at": "2025-11-10T10:10:00Z"
     }
   },
   {
     "model": "apps.Product",
     "pk": 4,
     "fields": {
-      "name": "Xiaomi Power Bank 20000 mAh",
-      "slug": "xiaomi-power-bank-20000-mah-4",
-      "category": 2,
-      "description": "Xiaomi Power Bank, tez zaryadlash funksiyasi bilan.",
-      "deliver_date": "2025-11-12",
+      "category": 6,
+      "slug": "muzlatkich-smart",
+      "name": "Smart muzlatkich LG",
+      "description": "Energiyani tejaydigan va o'rnatilgan ekranli aqlli muzlatkich.",
+      "deliver_date": "2025-12-01",
       "shop": 4,
-      "created_at": "2024-06-15T13:00:00Z"
+      "created_at": "2025-11-10T10:15:00Z"
     }
   },
   {
     "model": "apps.Product",
     "pk": 5,
     "fields": {
-      "name": "Organik qizil olma (1kg)",
-      "slug": "organik-qizil-olma-1kg-5",
-      "category": 5,
-      "description": "Farg'ona vodiysidan keltirilgan organik qizil olma.",
-      "deliver_date": "2025-11-09",
+      "category": 7,
+      "slug": "smart-watch-series-8",
+      "name": "Smart Watch Series 8",
+      "description": "Yurak urish tezligini o'lchovchi, sport funksiyalari mavjud soat.",
+      "deliver_date": "2025-11-20",
       "shop": 5,
-      "created_at": "2024-06-20T14:00:00Z"
+      "created_at": "2025-11-10T10:20:00Z"
+    }
+  },
+  {
+    "model": "apps.Product",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "slug": "xiaomi-flagship",
+      "name": "Smartfon Xiaomi 15 Pro",
+      "description": "Eng so'nggi texnologiyalar bilan jihozlangan, arzon flagman smartfon.",
+      "deliver_date": "2025-11-28",
+      "shop": 6,
+      "created_at": "2025-11-10T10:25:00Z"
+    }
+  },
+  {
+    "model": "apps.Product",
+    "pk": 7,
+    "fields": {
+      "category": 3,
+      "slug": "noutbuk-gaming-i9",
+      "name": "Gaming Noutbuk Asus",
+      "description": "O'yinlar uchun maxsus mo'ljallangan, yuqori konfiguratsiyali noutbuk.",
+      "deliver_date": null,
+      "shop": 7,
+      "created_at": "2025-11-10T10:30:00Z"
     }
   }
 ]

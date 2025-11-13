@@ -1,42 +1,58 @@
 [
   {
-    "model": "apps.productimage",
+    "model": "apps.ProductImage",
     "pk": 1,
     "fields": {
-      "product": "1",
-      "image": "media/products/s23_main.jpg"
+      "product": 1,
+      "image": "media/products/smartfon_s25_asosiy.jpg"
     }
   },
   {
-    "model": "apps.productimage",
+    "model": "apps.ProductImage",
     "pk": 2,
     "fields": {
-      "product": "2",
-      "image": "media/products/s23_side.jpg"
+      "product": 1,
+      "image": "media/products/smartfon_s25_qora.jpg"
     }
   },
   {
-    "model": "apps.productimage",
+    "model": "apps.ProductImage",
     "pk": 3,
     "fields": {
-      "product": "2",
-      "image": "media/products/macbook_air_m2.png"
+      "product": 2,
+      "image": "media/products/macbook_pro_asosiy.png"
     }
   },
   {
-    "model": "apps.productimage",
+    "model": "apps.ProductImage",
     "pk": 4,
     "fields": {
-      "product": "3",
-      "image": "media/products/tshirt_white.jpg"
+      "product": 3,
+      "image": "media/products/kurtka_sport.jpg"
     }
   },
   {
-    "model": "apps.productimage",
+    "model": "apps.ProductImage",
     "pk": 5,
     "fields": {
-      "product": "4",
-      "image": "media/products/lenovo_legion_5.jpg"
+      "product": 4,
+      "image": "media/products/muzlatkich_lg.jpg"
+    }
+  },
+  {
+    "model": "apps.ProductImage",
+    "pk": 6,
+    "fields": {
+      "product": 5,
+      "image": "media/products/smartwatch_8.jpg"
+    }
+  },
+  {
+    "model": "apps.ProductImage",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "image": "media/products/gaming_noutbuk_asus.jpg"
     }
   }
 ]

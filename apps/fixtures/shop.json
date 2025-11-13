@@ -1,62 +1,98 @@
 [
   {
-    "model": "apps.Shop",
+    "model": "apps.shop",
     "pk": 1,
     "fields": {
+      "created_at": "2024-01-20T10:00:00Z",
       "merchant": 1,
       "name": "Global Tech Market",
       "banner": "market/banner/tech_banner.jpg",
       "logo": "market/logo/tech_logo.png",
-      "description": "Smartfonlar, noutbuklar va gadjetlarning eng katta tanlovi.",
-      "created_at": "2024-01-20T10:00:00Z"
+      "description": "Smartfonlar, noutbuklar va gadjetlarning eng katta tanlovi."
     }
   },
   {
-    "model": "apps.Shop",
+    "model": "apps.shop",
     "pk": 2,
     "fields": {
+      "created_at": "2024-02-25T11:00:00Z",
       "merchant": 2,
       "name": "Nigora Boutique",
       "banner": "market/banner/fashion_banner.jpg",
       "logo": "market/logo/boutique_logo.png",
-      "description": "Ayollar uchun eksklyuziv kiyim-kechaklar kolleksiyasi.",
-      "created_at": "2024-02-25T11:00:00Z"
+      "description": "Ayollar uchun eksklyuziv kiyim-kechaklar kolleksiyasi."
     }
   },
   {
-    "model": "apps.Shop",
+    "model": "apps.shop",
     "pk": 3,
     "fields": {
+      "created_at": "2024-03-01T12:00:00Z",
       "merchant": 1,
       "name": "Global Home Appliances",
       "banner": "market/banner/appliances_banner.jpg",
       "logo": "market/logo/appliances_logo.png",
-      "description": "Maishiy texnika va uy uchun jihozlar.",
-      "created_at": "2024-03-01T12:00:00Z"
+      "description": "Maishiy texnika va uy uchun jihozlar."
     }
   },
   {
-    "model": "apps.Shop",
+    "model": "apps.shop",
     "pk": 4,
     "fields": {
+      "created_at": "2024-04-05T13:00:00Z",
       "merchant": 3,
       "name": "Davron Gadgets",
       "banner": "market/banner/gadgets_banner.jpg",
       "logo": "market/logo/gadgets_logo.png",
-      "description": "So'nggi rusumdagi gadjetlar va aksessuarlar.",
-      "created_at": "2024-04-05T13:00:00Z"
+      "description": "So'nggi rusumdagi gadjetlar va aksessuarlar."
     }
   },
   {
-    "model": "apps.Shop",
+    "model": "apps.shop",
     "pk": 5,
     "fields": {
+      "created_at": "2024-05-15T14:00:00Z",
       "merchant": 4,
       "name": "Botirov Food Express",
       "banner": "market/banner/food_banner.jpg",
       "logo": "market/logo/food_logo.png",
-      "description": "Tez va sifatli oziq-ovqat yetkazib berish xizmati.",
-      "created_at": "2024-05-15T14:00:00Z"
+      "description": "Tez va sifatli oziq-ovqat yetkazib berish xizmati."
+    }
+  },
+  {
+    "model": "apps.shop",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-06-01T09:30:00Z",
+      "merchant": 8,
+      "name": "Smart Gadgets Zone",
+      "banner": "market/banner/gadget_banner.jpg",
+      "logo": "market/logo/gadget_logo.png",
+      "description": "Eng yangi smartfonlar, soatlar va aksessuarlarning rasmiy sotuvchisi."
+    }
+  },
+  {
+    "model": "apps.shop",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-06-10T12:00:00Z",
+      "merchant": 9,
+      "name": "Home Comfort Textiles",
+      "banner": "market/banner/textile_banner.jpg",
+      "logo": "market/logo/textile_logo.png",
+      "description": "Uy uchun yuqori sifatli to'qimachilik mahsulotlari: adyollar, choyshablar, sochiqlar."
+    }
+  },
+  {
+    "model": "apps.shop",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-06-25T17:45:00Z",
+      "merchant": 10,
+      "name": "Kids' World Toys",
+      "banner": "market/banner/toys_banner.jpg",
+      "logo": "market/logo/toys_logo.png",
+      "description": "Bolalar uchun xavfsiz va rivojlantiruvchi o'yinchoqlar assortimenti."
     }
   }
 ]
