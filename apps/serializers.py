@@ -16,6 +16,7 @@ from rest_framework_simplejwt.tokens import RefreshToken, Token
 
 from .models import Cart, CartItem, Category, Like, Product, ProductImage, User
 from .models.products import Comment, ProductVersion
+from .models.users import Shop
 
 
 class SendSmsCodeSerializer(Serializer):
@@ -167,4 +168,10 @@ class CartModelSerializer(ModelSerializer):
 class CartItemModelSerializer(ModelSerializer):
     class Meta:
         model = CartItem
+        fields = '__all__'
+
+class ShopModelSerializer(ModelSerializer):
+    products = ProductListModelSerializer(many=True, read_only=True)
+    class Meta:
+        model = Shop
         fields = '__all__'

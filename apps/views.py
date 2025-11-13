@@ -1,5 +1,6 @@
 from apps.filters import ProductPriceFilter
 from apps.models import Category, Comment, Like, Product, Cart, CartItem
+from apps.models.users import Shop
 from apps.paginations import CustomProductPagination
 from apps.serializers import (
     CategoryModelSerializer,
@@ -8,7 +9,7 @@ from apps.serializers import (
     ProductDetailModelSerializer,
     ProductListModelSerializer,
     SendSmsCodeSerializer,
-    VerifySmsCodeSerializer, CartModelSerializer, CartItemModelSerializer,
+    VerifySmsCodeSerializer, CartModelSerializer, CartItemModelSerializer, ShopModelSerializer,
 )
 from apps.utils import check_sms_code, random_code, send_sms_code
 from django.db.models import Min
@@ -139,4 +140,8 @@ class CartItemListCreateView(ListCreateAPIView):
         user = self.request.user
         if user.is_anonymous:
             raise NotAuthenticated(_("You are not authenticated"))
-        return CartItem.objects.filter(cart__customer=user)
+        return CartItem.objects.filter(cart__customer   =user)
+
+class ShopListView(ListAPIView):
+    queryset = Shop.objects.all()
+    serializer_class = ShopModelSerializer

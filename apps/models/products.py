@@ -78,7 +78,7 @@ class ProductVersion(SlugBaseModel):
 
 class ProductImage(Model):
     product = ForeignKey('apps.Product', CASCADE, related_name='images')
-    image = ImageField(_('Image'), upload_to='media/products/', null=True, blank=True)
+    image = ImageField(_('Image'), upload_to='products/', null=True, blank=True)
 
     def __str__(self):
         return self.product.name
