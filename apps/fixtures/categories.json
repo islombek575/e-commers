@@ -1,0 +1,184 @@
+[
+{
+  "model": "apps.category",
+  "pk": 1,
+  "fields": {
+    "slug": "texnika-1",
+    "name": "Texnika",
+    "icon": "",
+    "parent": null,
+    "lft": 1,
+    "rght": 16,
+    "tree_id": 2,
+    "level": 0
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 2,
+  "fields": {
+    "slug": "kiyim-kechak-2",
+    "name": "Kiyim-Kechak",
+    "icon": "categories/icon/addimage_wMr9Xug.png",
+    "parent": null,
+    "lft": 1,
+    "rght": 10,
+    "tree_id": 1,
+    "level": 0
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 3,
+  "fields": {
+    "slug": "noutbuklar-3",
+    "name": "Noutbuklar",
+    "icon": "",
+    "parent": 1,
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 4,
+  "fields": {
+    "slug": "smartfonlar-4",
+    "name": "Smartfonlar",
+    "icon": "",
+    "parent": 1,
+    "lft": 10,
+    "rght": 13,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 5,
+  "fields": {
+    "slug": "t-shirt-5",
+    "name": "T-Shirt",
+    "icon": "",
+    "parent": 2,
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 6,
+  "fields": {
+    "slug": "oyoq-kiyimlar-6",
+    "name": "Oyoq Kiyimlar",
+    "icon": "",
+    "parent": 2,
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 7,
+  "fields": {
+    "slug": "shimlar-7",
+    "name": "Shimlar",
+    "icon": "",
+    "parent": 2,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 8,
+  "fields": {
+    "slug": "televizorlar-8",
+    "name": "Televizorlar",
+    "icon": "",
+    "parent": 1,
+    "lft": 14,
+    "rght": 15,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 9,
+  "fields": {
+    "slug": "qishki-kolleksiya-9",
+    "name": "Qishki kolleksiya",
+    "icon": "",
+    "parent": 2,
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 10,
+  "fields": {
+    "slug": "maishiy-texnika-10",
+    "name": "Maishiy Texnika",
+    "icon": "",
+    "parent": 1,
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 11,
+  "fields": {
+    "slug": "knopkali-telefonlar-11",
+    "name": "Knopkali telefonlar",
+    "icon": "",
+    "parent": 4,
+    "lft": 11,
+    "rght": 12,
+    "tree_id": 2,
+    "level": 2
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 12,
+  "fields": {
+    "slug": "foto-va-video-texnika-12",
+    "name": "Foto va video texnika",
+    "icon": "",
+    "parent": 1,
+    "lft": 2,
+    "rght": 5,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "apps.category",
+  "pk": 13,
+  "fields": {
+    "slug": "fotosuratchilar-uchun-uskunalar-13",
+    "name": "Fotosuratchilar uchun uskunalar",
+    "icon": "",
+    "parent": 12,
+    "lft": 3,
+    "rght": 4,
+    "tree_id": 2,
+    "level": 2
+  }
+}
+]
