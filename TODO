@@ -16,8 +16,8 @@ django mptt +
 
 9. merchant (user turi) product qoshish faqat merchant orqali, user turlari, admin, moderator, merchant, client +
 10. products apisida, search, filter, order by, pagination +
-11. sotuvchilarni apisini chiqarish
-https://uzum.uz/uz/shop/justcases
+11. sotuvchilarni apisini chiqarish +
+https://uzum.uz/uz/shop/justcases + 
 12. cart va wishlist apisini chiqarish
 13.✅+ django argon2
 

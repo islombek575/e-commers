@@ -14,7 +14,7 @@ from rest_framework.fields import (
 from rest_framework.serializers import ModelSerializer, Serializer
 from rest_framework_simplejwt.tokens import RefreshToken, Token
 
-from .models import Cart, CartItem, Category, Like, Product, ProductImage, User
+from .models import Cart, CartItem, Category, Like, Order, OrderItem, Product, ProductImage, User
 from .models.products import Comment, ProductVersion
 from .models.users import Shop
 
@@ -160,18 +160,43 @@ class LikeSerializer(ModelSerializer):
         model = Like
         fields = ['id', 'user', 'product']
 
+
 class CartModelSerializer(ModelSerializer):
     class Meta:
         model = Cart
         fields = '__all__'
 
+
 class CartItemModelSerializer(ModelSerializer):
     class Meta:
         model = CartItem
+        fields = 'id', 'cart', 'product_version', 'quantity'
+        read_only_fields = 'cart', 'quantity'
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        cart = Cart.objects.filter(user=user).first()
+        if not cart:
+            cart = Cart.objects.create(user=user)
+
+        return super().create(validated_data | {'cart_id': cart.id})
+
+
+class OrderModelSerializer(ModelSerializer):
+    class Meta:
+        model = Order
         fields = '__all__'
+
+
+class OrderItemModelSerializer(ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = '__all__'
+
 
 class ShopModelSerializer(ModelSerializer):
     products = ProductListModelSerializer(many=True, read_only=True)
+
     class Meta:
         model = Shop
         fields = '__all__'

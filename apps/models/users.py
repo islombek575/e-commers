@@ -66,7 +66,8 @@ class User(AbstractUser):
 
 
 class Merchant(CreatedBaseModel):
-    user = OneToOneField('apps.User', CASCADE, limit_choices_to={'role': 'merchant.json'}, related_name='merchant_profile',
+    user = OneToOneField('apps.User', CASCADE, limit_choices_to={'role': 'merchant.json'},
+                         related_name='merchant_profile',
                          verbose_name=_('User'))
     company_name = CharField(_('Company Name'), max_length=150)
     tin = CharField(_('STIR / INN'), max_length=15, unique=True)

@@ -1,7 +1,6 @@
-from django.db.models import ForeignKey, CASCADE, TextChoices, CharField
-from django.db.models.fields import IntegerField
-
 from apps.models.base import CreatedBaseModel
+from django.db.models import CASCADE, CharField, ForeignKey, TextChoices
+from django.db.models.fields import IntegerField
 
 
 class Order(CreatedBaseModel):

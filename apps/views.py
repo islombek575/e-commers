@@ -1,15 +1,18 @@
 from apps.filters import ProductPriceFilter
-from apps.models import Category, Comment, Like, Product, Cart, CartItem
+from apps.models import Cart, CartItem, Category, Comment, Like, Product
 from apps.models.users import Shop
 from apps.paginations import CustomProductPagination
 from apps.serializers import (
+    CartItemModelSerializer,
+    CartModelSerializer,
     CategoryModelSerializer,
     CommentModelSerializer,
     LikeSerializer,
     ProductDetailModelSerializer,
     ProductListModelSerializer,
     SendSmsCodeSerializer,
-    VerifySmsCodeSerializer, CartModelSerializer, CartItemModelSerializer, ShopModelSerializer,
+    ShopModelSerializer,
+    VerifySmsCodeSerializer,
 )
 from apps.utils import check_sms_code, random_code, send_sms_code
 from django.db.models import Min
@@ -17,7 +20,7 @@ from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
-from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, ListCreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, ListCreateAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -75,7 +78,7 @@ class ProductListView(ListAPIView):
 
     filterset_class = ProductPriceFilter
 
-    search_fields = ['name','description','category__name']
+    search_fields = ['name', 'description', 'category__name']
 
     ordering_fields = ['min_price', 'created_at']
 
@@ -118,6 +121,7 @@ class CommentCreateView(CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user, product_id=self.kwargs['product_id'])
 
+
 @extend_schema(tags=['Cart & CartItem'])
 class CartListCreateView(ListCreateAPIView):
     queryset = Cart.objects.all()
@@ -130,6 +134,7 @@ class CartListCreateView(ListCreateAPIView):
             raise NotAuthenticated(_("You are not authenticated"))
         return Cart.objects.filter(customer=user)
 
+
 @extend_schema(tags=['Cart & CartItem'])
 class CartItemListCreateView(ListCreateAPIView):
     queryset = CartItem.objects.all()
@@ -140,8 +145,9 @@ class CartItemListCreateView(ListCreateAPIView):
         user = self.request.user
         if user.is_anonymous:
             raise NotAuthenticated(_("You are not authenticated"))
-        return CartItem.objects.filter(cart__customer   =user)
+        return CartItem.objects.filter(cart__customer=user)
 
-class ShopListView(ListAPIView):
+
+class ShopDetailAPIView(RetrieveAPIView):
     queryset = Shop.objects.all()
     serializer_class = ShopModelSerializer

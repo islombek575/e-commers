@@ -49,7 +49,6 @@ class Product(SlugBaseModel, CreatedBaseModel):
         verbose_name_plural = _('products')
         ordering = ['-created_at']
 
-
     @property
     @extend_schema_field(serializers.FloatField())
     def price(self):
@@ -71,9 +70,9 @@ class ProductVersion(SlugBaseModel):
 
     @property
     def final_price(self):
-            if self.discount:
-                return self.price - (self.price * self.discount / 100)
-            return self.price
+        if self.discount:
+            return self.price - (self.price * self.discount / 100)
+        return self.price
 
 
 class ProductImage(Model):

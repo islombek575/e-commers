@@ -16,7 +16,7 @@ def _get_login_key(phone):
 def send_sms_code(phone: str, code: int, expire_time=60):
     redis = Redis.from_url(settings.CACHES['default']['LOCATION'])
     _key = _get_login_key(phone)
-    _ttl = redis.ttl(_key)
+    _ttl = redis.ttl(f":1:{_key}")
     if _ttl > 0:
         return False, _ttl
     print(f"[TEST] Phone: {phone} == Sms code: {code}")
@@ -29,4 +29,3 @@ def check_sms_code(phone, code):
     _code = cache.get(_key)
     print(_code, code)
     return _code == code
-
