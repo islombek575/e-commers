@@ -21,7 +21,7 @@ class User(AbstractUser):
     class Role(TextChoices):
         admin = 'admin'
         moderator = 'moderator'
-        merchant = 'merchant.json'
+        merchant = 'merchant'
         client = 'client'
 
     address = CharField(_('Location'), max_length=100, null=True, blank=True)
