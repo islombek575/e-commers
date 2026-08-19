@@ -25,4 +25,3 @@ https://uzum.uz/uz/shop/justcases +
 
 
 python manage.py dumpdata apps.Category --indent 2 > apps/fixtures/categories.json
-..
