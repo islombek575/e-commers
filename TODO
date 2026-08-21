@@ -1,4 +1,22 @@
- chiqarish +
+uzum.uz
+
+
+Task
+1.✅+ category ichma ich qilish +
+2.✅+ modellarni yozish (dokon, product, category, cart, order, user, comment) +
+3.✅+ user ichida check_phone emas, clean ichida yozish
+4.✅+ fixture
+5.✅+ isort, flake8
+6.✅+ send sms qilganimizda, 1minutlik vaqt korsatsin
+7.✅+ slugni togrilash kk
+https://uzum.uz/uz/category/elektronika-10020 +
+
+8. categories apisida, categoryni ichma ich chiqarish +
+django mptt +
+
+9. merchant (user turi) product qoshish faqat merchant orqali, user turlari, admin, moderator, merchant, client +
+10. products apisida, search, filter, order by, pagination +
+11. sotuvchilarni apisini chiqarish +
 https://uzum.uz/uz/shop/justcases + 
 12. cart va wishlist apisini chiqarish
 13.✅+ django argon2
@@ -7,4 +25,3 @@ https://uzum.uz/uz/shop/justcases +
 
 
 python manage.py dumpdata apps.Category --indent 2 > apps/fixtures/categories.json
-....
